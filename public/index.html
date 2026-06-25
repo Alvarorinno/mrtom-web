@@ -821,7 +821,28 @@ function selMultiple(btn) {
 }
 
 // Enviar
-function enviarFormulario() {
+async function enviarFormulario() {
+  const doloresSeleccionados = [...document.querySelectorAll('#dolores button[data-sel="1"]')].map(b => b.innerText).join(', ');
+
+  const datos = {
+    empresa:     document.getElementById('f-empresa').value,
+    nombre:      document.getElementById('f-nombre').value,
+    email:       document.getElementById('f-email').value,
+    ecommerce:   ecomValue === 'si' ? 'Sí' : 'No',
+    facturacion: document.querySelector('#facturacion button[style*="F5EDD4"]')?.innerText || 'No indicado',
+    facturas:    document.querySelector('#facturas button[style*="F5EDD4"]')?.innerText || 'No indicado',
+    control:     document.querySelector('#control button[style*="F5EDD4"]')?.innerText || 'No indicado',
+    dolores:     doloresSeleccionados || 'No indicado',
+  };
+
+  try {
+    await fetch('/api/send-diagnostico', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos),
+    });
+  } catch(e) { console.error(e); }
+
   irPaso('ok');
   setTimeout(() => cerrarModal(), 3000);
 }
