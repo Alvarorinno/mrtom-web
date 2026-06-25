@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Tom <onboarding@resend.dev>',
+        from: 'Tom <tom@mrtom.cl>',
         to: email,
         subject: 'He recibido tu diagnóstico — MrTom',
         html: `
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Diagnóstico MrTom <onboarding@resend.dev>',
+        from: 'Diagnóstico MrTom <tom@mrtom.cl>',
         to: 'aguzmanlabra@gmail.com',
         subject: `Nuevo diagnóstico — ${empresa}`,
         html: `
