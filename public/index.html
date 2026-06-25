@@ -71,13 +71,11 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95)
 
 /* HERO */
 .hero { padding: 72px 0 64px; border-bottom: 1px solid var(--gray-2); }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-@media(max-width:700px){ .hero-grid { grid-template-columns: 1fr; } }
 
 .eyebrow { display: block; width: 100%; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy); background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; text-align: center; }
-.hero h1 { font-family: var(--serif); font-size: clamp(28px,4vw,42px); font-weight: 900; line-height: 1.15; color: var(--navy); margin-bottom: 16px; letter-spacing: -.5px; }
+.hero h1 { font-family: var(--serif); font-size: clamp(28px,5vw,52px); font-weight: 900; line-height: 1.15; color: var(--navy); margin-bottom: 16px; letter-spacing: -.5px; max-width: 100%; }
 .hero h1 em { font-style: italic; color: var(--gold); }
-.hero-sub { font-size: 16px; color: var(--gray-mid); margin-bottom: 32px; line-height: 1.7; }
+.hero-sub { font-size: 17px; color: var(--gray-mid); margin-bottom: 32px; line-height: 1.7; max-width: 100%; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .btn-primary { background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--sans); transition: background .15s; text-decoration: none; display: inline-block; }
@@ -287,42 +285,16 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Asesoría administrativa, contable y tributaria personalizada</div>
-    <div class="hero-grid">
-      <!-- Izquierda -->
-      <div>
-        <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
-        <p class="hero-sub">Miles de agencias y pymes en Chile pagan más impuestos de lo que deberían. MrTom te lo resuelve.</p>
-        <div class="hero-actions">
-          <a href="#diagnostico" class="btn-primary">Diagnóstico gratuito →</a>
-          <a href="#planes" class="btn-ghost">Ver planes</a>
-        </div>
-        <div class="hero-trust" style="margin-top:24px;">
-          <span>Sin compromiso inicial</span>
-          <span>Respuesta en 24 hrs</span>
-          <span>Dashboard incluido</span>
-        </div>
-      </div>
-      <!-- Derecha -->
-      <div>
-        <div class="hero-card">
-          <div class="hero-card-title">Lo que obtienes con MrTom</div>
-          <ul class="hero-card-items">
-            <li>
-              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span><strong style="color:#fff">Cero sorpresas con el SII</strong> — Todo al día, alertas anticipadas y respaldo ante fiscalizaciones.</span>
-            </li>
-            <li>
-              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span><strong style="color:#fff">Menos impuestos, dentro de la ley</strong> — Revisamos PPM, régimen y gastos deducibles cada mes.</span>
-            </li>
-            <li>
-              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span><strong style="color:#fff">Claridad para decidir</strong> — Dashboard mensual con balance, flujo y proyección real.</span>
-            </li>
-          </ul>
-          <a href="#diagnostico" class="hero-card-cta">Agendar diagnóstico gratuito →</a>
-        </div>
-      </div>
+    <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
+    <p class="hero-sub">Miles de agencias y pymes en Chile pagan más impuestos de lo que deberían. MrTom te lo resuelve.</p>
+    <div class="hero-actions">
+      <a href="#diagnostico" class="btn-primary">Diagnóstico gratuito →</a>
+      <a href="#planes" class="btn-ghost">Ver planes</a>
+    </div>
+    <div class="hero-trust" style="margin-top:24px;">
+      <span>Sin compromiso inicial</span>
+      <span>Respuesta en 24 hrs</span>
+      <span>Dashboard incluido</span>
     </div>
   </div>
 </section>
