@@ -55,9 +55,17 @@ body { font-family: var(--sans); font-size: 16px; line-height: 1.7; color: var(-
 /* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
 .nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 3px; }
-.nav-logo .mr { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); }
-.nav-logo .tom { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--navy); }
+.nav-logo { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.nav-logo .logo-divider { width: 0.5px; background: rgba(13,27,42,0.18); height: 36px; flex-shrink: 0; }
+.nav-logo .logo-text { display: flex; flex-direction: column; line-height: 1; }
+.nav-logo .mr { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.nav-logo .tom { font-family: var(--serif); font-size: 32px; font-weight: 900; letter-spacing: -0.02em; color: var(--navy); line-height: 1; }
+
+.footer-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+.footer-logo .logo-divider { width: 0.5px; background: rgba(201,168,76,0.25); height: 26px; flex-shrink: 0; }
+.footer-logo .logo-text { display: flex; flex-direction: column; line-height: 1; }
+.footer-logo .mr { font-family: var(--sans); font-size: 8px; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.footer-logo .tom { font-family: var(--serif); font-size: 22px; font-weight: 900; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
 .nav-cta { background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: var(--sans); transition: background .15s; }
 .nav-cta:hover { background: var(--navy-soft); }
 
@@ -179,8 +187,7 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .final-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* FOOTER */
-footer { padding: 24px 0; border-top: 1px solid var(--gray-2); text-align: center; font-size: 13px; color: var(--gray-3); }
-footer strong { color: var(--gold); font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.20em; text-transform: uppercase; }
+footer { padding: 40px 0; background: var(--navy); text-align: center; font-size: 13px; color: rgba(255,255,255,0.45); }
 
 @media(max-width:480px){
   .hero { padding: 52px 0 48px; }
@@ -193,7 +200,25 @@ footer strong { color: var(--gold); font-family: var(--sans); font-size: 13px; f
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><span class="mr">MR.</span><span class="tom">Tom</span></a>
+    <a href="#" class="nav-logo">
+      <svg width="52" height="48" viewBox="0 0 52 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="4"  y1="8"  x2="48" y2="8"  stroke="#0D1B2A" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="4"  y1="13" x2="48" y2="13" stroke="#0D1B2A" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
+        <line x1="26" y1="8"  x2="26" y2="42" stroke="#0D1B2A" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="4"  y1="42" x2="48" y2="42" stroke="#0D1B2A" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
+        <line x1="6"  y1="20" x2="22" y2="20" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <line x1="6"  y1="28" x2="22" y2="28" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.52"/>
+        <line x1="6"  y1="36" x2="22" y2="36" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.28"/>
+        <line x1="30" y1="20" x2="46" y2="20" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <line x1="30" y1="28" x2="46" y2="28" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.52"/>
+        <line x1="30" y1="36" x2="46" y2="36" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" opacity="0.28"/>
+      </svg>
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <span class="mr">MR.</span>
+        <span class="tom">Tom</span>
+      </div>
+    </a>
     <a href="#planes" class="nav-cta">Ver planes</a>
   </div>
 </nav>
@@ -513,7 +538,28 @@ footer strong { color: var(--gold); font-family: var(--sans); font-size: 13px; f
 </section>
 
 <footer>
-  <div class="wrap"><strong>MrTom.</strong> &nbsp;·&nbsp; El consejero que tu empresa merece &nbsp;·&nbsp; contacto@mrtom.cl</div>
+  <div class="wrap" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+    <a href="#" class="footer-logo">
+      <svg width="36" height="34" viewBox="0 0 52 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="4"  y1="8"  x2="48" y2="8"  stroke="#C9A84C" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="4"  y1="13" x2="48" y2="13" stroke="#C9A84C" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
+        <line x1="26" y1="8"  x2="26" y2="42" stroke="#C9A84C" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="4"  y1="42" x2="48" y2="42" stroke="#C9A84C" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
+        <line x1="6"  y1="20" x2="22" y2="20" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <line x1="6"  y1="28" x2="22" y2="28" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.52"/>
+        <line x1="6"  y1="36" x2="22" y2="36" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.28"/>
+        <line x1="30" y1="20" x2="46" y2="20" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <line x1="30" y1="28" x2="46" y2="28" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.52"/>
+        <line x1="30" y1="36" x2="46" y2="36" stroke="#E8C878" stroke-width="1.6" stroke-linecap="round" opacity="0.28"/>
+      </svg>
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <span class="mr">MR.</span>
+        <span class="tom">Tom</span>
+      </div>
+    </a>
+    <span>El consejero que tu empresa merece &nbsp;·&nbsp; contacto@mrtom.cl</span>
+  </div>
 </footer>
 
 <script>
