@@ -123,8 +123,7 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .plan-note { font-size: 12px; color: var(--gray-3); margin-top: 3px; }
 .plan-note-sub { font-size: 11px; color: var(--amber); margin-top: 2px; font-style: italic; }
 .plan-divider { height: 1px; background: var(--gray-2); margin: 16px 0; }
-.plan-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-@media(max-width:540px){ .plan-cols { grid-template-columns: 1fr; } }
+.plan-cols { display: flex; flex-direction: column; gap: 20px; }
 .plan-col-label { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 8px; }
 .plan-items { list-style: none; }
 .plan-items li { font-size: 13px; color: var(--gray-4); padding: 6px 0; border-bottom: 1px solid var(--gray-2); display: flex; gap: 9px; align-items: flex-start; line-height: 1.5; }
