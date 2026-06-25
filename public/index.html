@@ -55,6 +55,27 @@ body { font-family: var(--sans); font-size: 16px; line-height: 1.7; color: var(-
 /* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
 .nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-links { display: flex; gap: 10px; align-items: center; }
+
+/* Hamburger */
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all .25s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.nav-mobile { display: none; flex-direction: column; background: #fff; border-top: 1px solid var(--gray-line); padding: 16px 24px; gap: 10px; }
+.nav-mobile.open { display: flex; }
+.nav-mobile a { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--navy); border: 1px solid var(--gray-line); transition: background .15s; }
+.nav-mobile a:first-child { background: var(--navy); color: #fff; border-color: var(--navy); }
+.nav-mobile a:hover { background: var(--cream); }
+.nav-mobile a:first-child:hover { background: var(--navy-soft); }
+
+@media(max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
 .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 12px; }
 .nav-logo .logo-divider { width: 0.5px; background: rgba(13,27,42,0.18); height: 36px; flex-shrink: 0; }
 .nav-logo .logo-text { display: flex; flex-direction: column; line-height: 1; }
@@ -277,7 +298,8 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
         <span class="tom">Tom</span>
       </div>
     </a>
-    <div style="display:flex; gap:10px; align-items:center;">
+    <!-- Desktop -->
+    <div class="nav-links">
       <a href="https://app.mrtom.cl/dashboard" target="_blank" class="nav-cta" style="background:transparent; border:1px solid var(--gold); color:var(--gold);">Dashboard</a>
       <a href="#planes" class="nav-cta">Ver planes</a>
       <a href="https://app.mrtom.cl/empresas" target="_blank" class="nav-cta" style="background:transparent; border:1px solid var(--navy-soft); color:var(--navy); display:inline-flex; align-items:center; gap:7px;">
@@ -285,6 +307,19 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
         Mi portal
       </a>
     </div>
+    <!-- Hamburger -->
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="https://app.mrtom.cl/empresas" target="_blank">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Mi portal
+    </a>
+    <a href="#planes" onclick="toggleMenu()">Ver planes</a>
+    <a href="https://app.mrtom.cl/dashboard" target="_blank">Dashboard</a>
   </div>
 </nav>
 
@@ -746,6 +781,13 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 </div>
 
 <script>
+function toggleMenu() {
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-mobile');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
