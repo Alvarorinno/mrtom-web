@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MrTom — El consejero que tu empresa merece</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple: #3C3489; --purple-md: #534AB7; --purple-lt: #EEEDFE; --purple-dk: #26215C;
+  --teal: #0F6E56; --teal-lt: #E1F5EE;
+  --amber: #854F0B; --amber-lt: #FAEEDA;
+  --black: #111111; --gray-1: #F7F6F4; --gray-2: #EBEBEB; --gray-3: #888888; --gray-4: #444444;
+  --white: #FFFFFF;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --radius: 10px; --radius-lg: 16px; --max: 860px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
+.nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--purple); text-decoration: none; }
+.nav-cta { background: var(--purple); color: var(--white); border: none; border-radius: var(--radius); padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: var(--sans); transition: background .15s; }
+.nav-cta:hover { background: var(--purple-md); }
+
+/* HERO */
+.hero { padding: 80px 0 72px; border-bottom: 1px solid var(--gray-2); text-align: center; }
+.eyebrow { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); background: var(--purple-lt); border-radius: 20px; padding: 4px 14px; margin-bottom: 24px; }
+.hero h1 { font-family: var(--serif); font-size: clamp(28px,5vw,44px); font-weight: 700; line-height: 1.18; color: var(--black); max-width: 600px; margin: 0 auto 20px; letter-spacing: -.5px; }
+.hero h1 em { font-style: italic; color: var(--purple); }
+.hero-sub { font-size: 17px; color: var(--gray-3); max-width: 460px; margin: 0 auto 36px; line-height: 1.7; }
+.hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--purple); color: var(--white); border: none; border-radius: var(--radius); padding: 14px 28px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: background .15s; text-decoration: none; display: inline-block; }
+.btn-primary:hover { background: var(--purple-md); }
+.btn-ghost { background: transparent; color: var(--gray-4); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 14px 28px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: all .15s; text-decoration: none; display: inline-block; }
+.btn-ghost:hover { border-color: var(--gray-3); background: var(--gray-1); }
+.hero-trust { margin-top: 28px; font-size: 13px; color: var(--gray-3); display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.trust-sep::before { content: "·"; margin-right: 16px; }
+
+/* SECTIONS */
+section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+.section-title { font-family: var(--serif); font-size: clamp(22px,3.5vw,30px); font-weight: 700; color: var(--black); margin-bottom: 12px; line-height: 1.25; letter-spacing: -.3px; }
+.section-sub { font-size: 16px; color: var(--gray-3); max-width: 520px; line-height: 1.7; }
+.section-header { margin-bottom: 36px; }
+
+/* PAIN */
+.pain-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
+.pain-card { background: var(--gray-1); border-radius: var(--radius-lg); padding: 22px; border: 1px solid var(--gray-2); transition: border-color .15s; }
+.pain-card:hover { border-color: var(--purple-md); }
+.pain-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--purple-lt); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.pain-icon svg { width: 17px; height: 17px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pain-card h3 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 5px; }
+.pain-card p { font-size: 13px; color: var(--gray-3); line-height: 1.6; }
+
+/* PROMISE ROW */
+.promise-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; }
+@media(max-width:600px){ .promise-row { grid-template-columns: 1fr; } }
+.promise-block { padding: 24px; border-right: 1px solid var(--gray-2); }
+.promise-block:last-child { border-right: none; }
+.promise-block h3 { font-size: 14px; font-weight: 600; color: var(--purple); margin-bottom: 8px; }
+.promise-block p { font-size: 13px; color: var(--gray-3); line-height: 1.6; }
+.urgency-box { background: var(--purple-lt); border-radius: var(--radius); padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; }
+.urgency-box svg { width: 18px; height: 18px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; margin-top: 2px; }
+.urgency-box p { font-size: 13px; color: var(--purple-dk); line-height: 1.6; }
+
+/* PLANS — STACKED FULL WIDTH */
+.plan-stack { display: flex; flex-direction: column; gap: 20px; }
+.plan-card { border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 28px; background: var(--white); }
+.plan-card.featured { border: 2px solid var(--purple); }
+.plan-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+.plan-left { flex: 1; min-width: 200px; }
+.plan-badge { display: inline-block; font-size: 11px; font-weight: 600; border-radius: 20px; padding: 4px 12px; margin-bottom: 10px; }
+.badge-p { background: var(--purple-lt); color: var(--purple); }
+.badge-t { background: var(--teal-lt); color: var(--teal); }
+.plan-name { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--black); margin-bottom: 5px; }
+.plan-sub { font-size: 13px; color: var(--gray-3); line-height: 1.5; max-width: 380px; }
+.plan-right { text-align: right; }
+.plan-price { font-size: 28px; font-weight: 600; color: var(--black); }
+.plan-price span { font-size: 16px; font-weight: 400; color: var(--gray-3); }
+.plan-note { font-size: 12px; color: var(--gray-3); margin-top: 3px; }
+.plan-note-sub { font-size: 11px; color: var(--amber); margin-top: 2px; font-style: italic; }
+.plan-divider { height: 1px; background: var(--gray-2); margin: 16px 0; }
+.plan-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+@media(max-width:540px){ .plan-cols { grid-template-columns: 1fr; } }
+.plan-col-label { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 8px; }
+.plan-items { list-style: none; }
+.plan-items li { font-size: 13px; color: var(--gray-4); padding: 6px 0; border-bottom: 1px solid var(--gray-2); display: flex; gap: 9px; align-items: flex-start; line-height: 1.5; }
+.plan-items li:last-child { border-bottom: none; }
+.plan-items li svg { width: 14px; height: 14px; stroke: var(--purple); fill: none; stroke-width: 2.5; stroke-linecap: round; flex-shrink: 0; margin-top: 3px; }
+.plan-items.teal li svg { stroke: var(--teal); }
+.plan-promise { font-size: 13px; font-style: italic; color: var(--gray-3); border-left: 3px solid var(--purple); padding-left: 12px; line-height: 1.6; margin-top: 16px; }
+.plan-promise.teal { border-left-color: var(--teal); }
+.plan-cta { display: inline-block; margin-top: 16px; padding: 10px 22px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: all .15s; border: 1px solid var(--purple); background: transparent; color: var(--purple); text-decoration: none; }
+.plan-cta:hover { background: var(--purple-lt); }
+.plan-cta.filled { background: var(--purple); color: var(--white); }
+.plan-cta.filled:hover { background: var(--purple-md); }
+
+/* ADDONS */
+.addon-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px; }
+.addon { border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 16px; }
+.addon-name { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.addon-desc { font-size: 12px; color: var(--gray-3); margin-bottom: 8px; line-height: 1.5; }
+.addon-price { font-size: 13px; font-weight: 600; }
+.c-p { color: var(--purple); } .c-t { color: var(--teal); } .c-a { color: var(--amber); }
+
+/* STEPS */
+.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; }
+@media(max-width:600px){ .steps-grid { grid-template-columns: 1fr 1fr; } }
+.step-block { padding: 22px 18px; border-right: 1px solid var(--gray-2); }
+.step-block:last-child { border-right: none; }
+.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--purple-lt); color: var(--purple); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.step-block h3 { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 5px; }
+.step-block p { font-size: 12px; color: var(--gray-3); line-height: 1.5; }
+
+/* QUOTE */
+.quote-card { border-left: 4px solid var(--purple); padding: 22px 26px; background: var(--gray-1); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+.quote-text { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--black); line-height: 1.65; margin-bottom: 12px; }
+.quote-attr { font-size: 13px; color: var(--gray-3); }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--gray-2); padding: 18px 0; cursor: pointer; }
+.faq-item:first-child { border-top: 1px solid var(--gray-2); }
+.faq-q { font-size: 15px; font-weight: 500; color: var(--black); display: flex; justify-content: space-between; align-items: center; gap: 12px; user-select: none; }
+.faq-q svg { width: 17px; height: 17px; stroke: var(--gray-3); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; transition: transform .2s; }
+.faq-a { font-size: 14px; color: var(--gray-3); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .3s ease, margin-top .2s; }
+.faq-item.open .faq-a { max-height: 200px; margin-top: 10px; }
+.faq-item.open .faq-q svg { transform: rotate(45deg); }
+
+/* FINAL CTA */
+.final-cta { text-align: center; padding: 72px 0; background: var(--gray-1); border-radius: var(--radius-lg); margin: 0 0 40px; }
+.final-cta h2 { font-family: var(--serif); font-size: clamp(22px,4vw,32px); font-weight: 700; color: var(--black); margin-bottom: 12px; }
+.final-cta p { font-size: 16px; color: var(--gray-3); max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
+.final-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+footer { padding: 24px 0; border-top: 1px solid var(--gray-2); text-align: center; font-size: 13px; color: var(--gray-3); }
+footer strong { color: var(--purple); font-family: var(--serif); font-size: 15px; }
+
+@media(max-width:480px){
+  .hero { padding: 52px 0 48px; }
+  section { padding: 48px 0; }
+  .plan-right { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">MrTom.</a>
+    <a href="#planes" class="nav-cta">Ver planes</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-bottom:1px solid var(--gray-2);padding:80px 0 72px">
+  <div class="wrap">
+    <div class="eyebrow">Asesoría contable, tributaria y administrativa</div>
+    <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
+    <p class="hero-sub">Miles de agencias y pymes en Chile pagan más impuestos de lo que deberían, no tienen visibilidad de su flujo y viven con miedo al SII. Nosotros lo resolvemos.</p>
+    <div class="hero-actions">
+      <a href="#diagnostico" class="btn-primary">Diagnóstico gratuito →</a>
+      <a href="#planes" class="btn-ghost">Ver planes y precios</a>
+    </div>
+    <div class="hero-trust">
+      <span>Sin compromiso de permanencia inicial</span>
+      <span class="trust-sep">Respuesta en 24 hrs</span>
+      <span class="trust-sep">Dashboard financiero incluido</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOLOR -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">El problema</div>
+      <div class="section-title">El contador que tienes te cumple.<br>El que necesitas te aconseja.</div>
+      <p class="section-sub">¿Te identificas con alguna de estas situaciones?</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
+        <h3>No sabes cuánto puedes retirar</h3>
+        <p>Tienes plata en la cuenta pero no sabes si es tuya o del SII. Retiras a ojo y en abril te llega la cuenta.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+        <h3>Tu contador aparece una vez al año</h3>
+        <p>Sin planificación, sin alertas, sin reuniones. Te enteras de los problemas cuando ya son urgentes.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>PPM que asfixian tu flujo</h3>
+        <p>Pagas PPM de más cada mes y esperas la devolución al año siguiente. Ese dinero podría estar trabajando para ti.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Miedo a una fiscalización del SII</h3>
+        <p>No tienes certeza de que todo esté bien. Y si llega una notificación, no tienes a nadie que te respalde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESA -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Nuestra promesa</div>
+      <div class="section-title">Tres resultados concretos, todos los meses</div>
+      <p class="section-sub">No vendemos horas de contador. Vendemos tranquilidad y claridad financiera.</p>
+    </div>
+    <div class="promise-row">
+      <div class="promise-block">
+        <h3>Cero sorpresas con el SII</h3>
+        <p>Todo al día, alertas anticipadas, cero multas. Si llega una fiscalización, estamos contigo.</p>
+      </div>
+      <div class="promise-block">
+        <h3>Menos impuestos, dentro de la ley</h3>
+        <p>Revisamos PPM, régimen tributario y gastos deducibles. Cada peso ahorrado es un resultado real.</p>
+      </div>
+      <div class="promise-block">
+        <h3>Claridad para decidir</h3>
+        <p>Dashboard mensual con balance, flujo y proyección. Sabes exactamente cómo está tu empresa.</p>
+      </div>
+    </div>
+    <div class="urgency-box">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p><strong>Ventana tributaria 2026–2027:</strong> la tasa reducida del 12,5% para pymes Pro Pyme termina en 2027. Si tienes utilidades acumuladas, este es el momento de planificar el retiro. La mayoría de los dueños de agencia no sabe que tiene esta oportunidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section id="planes">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Planes de servicio</div>
+      <div class="section-title">Dos niveles. Uno para ordenar, otro para crecer.</div>
+      <p class="section-sub">Ambos planes incluyen onboarding guiado, dashboard mensual automatizado y acceso directo a tu consejero. Valores sujetos a cotización según movimientos de la empresa.</p>
+    </div>
+    <div class="plan-stack">
+
+      <!-- NIVEL 1 -->
+      <div class="plan-card">
+        <div class="plan-top">
+          <div class="plan-left">
+            <div class="plan-badge badge-p">Nivel 1 · Entrada</div>
+            <div class="plan-name">Base Inteligente</div>
+            <div class="plan-sub">Para agencias o pymes recién formadas que necesitan orden desde el día uno.</div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">Desde 2 UF <span>/ mes</span></div>
+            <div class="plan-note">~$81.000 CLP · contrato mínimo 6 meses</div>
+            <div class="plan-note-sub">* Valor sujeto a cotización según movimientos</div>
+          </div>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-items">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contabilidad mensual completa (Conciliación Bancaria, libro de compras y ventas)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Preparación Tributaria (F29)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dashboard financiero mensual automatizado — ingresos, egresos, saldo disponible</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 consulta tributaria mensual por escrito (respuesta en 48 hrs)</li>
+        </ul>
+        <div class="plan-promise">"Tu empresa siempre al día, sin que tengas que pensar en el SII."</div>
+        <a href="#diagnostico" class="plan-cta">Comenzar con Base Inteligente →</a>
+      </div>
+
+      <!-- NIVEL 2 -->
+      <div class="plan-card featured">
+        <div class="plan-top">
+          <div class="plan-left">
+            <div class="plan-badge badge-t">Nivel 2 · Crecimiento · Recomendado</div>
+            <div class="plan-name">Consejero Activo</div>
+            <div class="plan-sub">Para agencias y pymes con 2–5 años operando que quieren crecer con información real.</div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">Desde 12 UF <span>/ mes</span></div>
+            <div class="plan-note">~$500.000 CLP · contrato mínimo 12 meses</div>
+            <div class="plan-note-sub">* Valor sujeto a cotización según movimientos</div>
+          </div>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-cols">
+          <div>
+            <div class="plan-col-label">Contabilidad y finanzas</div>
+            <ul class="plan-items teal">
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del Nivel 1</li>
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Estados financieros mensuales: balance, estado de resultados, flujo de caja (activos y pasivos)</li>
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Revisión trimestral de PPM — asesoría sobre monto mensual</li>
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Reunión mensual de 45 min para revisar y decidir</li>
+            </ul>
+          </div>
+          <div>
+            <div class="plan-col-label">Gestión y administración</div>
+            <ul class="plan-items teal">
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gestión de proveedores: pago y coordinación</li>
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gestión de clientes: alarmas de pagos pendientes e información de estado</li>
+              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Atención personalizada de asesorías e información</li>
+            </ul>
+          </div>
+        </div>
+        <div class="plan-promise teal">"Sabes exactamente cuánto ganaste, cuánto puedes retirar y cuánto pagarás de impuestos — antes de que llegue la fecha."</div>
+        <a href="#diagnostico" class="plan-cta filled">Comenzar con Consejero Activo →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Servicios adicionales</div>
+      <div class="section-title">Complementa tu plan según lo que necesites</div>
+    </div>
+    <div class="addon-grid">
+      <div class="addon">
+        <div class="addon-name">Inicio de actividades + estructura</div>
+        <div class="addon-desc">Elección de régimen tributario, alta en SII y configuración inicial.</div>
+        <div class="addon-price c-p">2 UF · pago único</div>
+      </div>
+      <div class="addon">
+        <div class="addon-name">Remuneraciones adicionales</div>
+        <div class="addon-desc">Por cada trabajador sobre el límite incluido en el plan base.</div>
+        <div class="addon-price c-p">0,3 UF / trabajador / mes</div>
+      </div>
+      <div class="addon">
+        <div class="addon-name">Operación Renta intensiva</div>
+        <div class="addon-desc">Para clientes sin contabilidad al día. Preparación completa del F22 y DJs.</div>
+        <div class="addon-price c-t">3 – 20 UF · según complejidad</div>
+      </div>
+      <div class="addon">
+        <div class="addon-name">Presupuesto</div>
+        <div class="addon-desc">Creación y/o control de presupuesto mensual para tu empresa.</div>
+        <div class="addon-price c-t">8 UF · pago mensual</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">El proceso</div>
+      <div class="section-title">Cuatro pasos para tener tu empresa en orden</div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-block">
+        <div class="step-num">1</div>
+        <h3>Diagnóstico gratuito</h3>
+        <p>Revisamos tu situación actual y te decimos exactamente qué está bien y qué hay que corregir.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">2</div>
+        <h3>Onboarding guiado</h3>
+        <p>Te incorporamos en menos de una semana. Nos encargamos de la transición desde tu contador anterior.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">3</div>
+        <h3>Dashboard activo</h3>
+        <p>El primer mes ya tienes tu tablero financiero funcionando. Números reales, sin esperas.</p>
+      </div>
+      <div class="step-block" style="border-right:none">
+        <div class="step-num">4</div>
+        <h3>Revisión mensual</h3>
+        <p>Cada mes revisamos juntos los números, ajustamos la estrategia y tomamos decisiones informadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIO -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Por qué MrTom</div>
+      <div class="section-title">El consejero que tu empresa merece</div>
+      <p class="section-sub">La diferencia no es el precio. Es tener a alguien de tu lado antes de que el problema te encuentre a ti.</p>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"Antes de MrTom sabía que algo estaba mal con mis impuestos, pero no sabía qué. En el primer mes me mostraron que estaba pagando PPM de más desde hace dos años. Esa devolución pagó el servicio por un año completo."</div>
+      <div class="quote-attr">Dueño de agencia digital · Santiago · cliente Consejero Activo</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Preguntas frecuentes</div>
+      <div class="section-title">Lo que más nos preguntan</div>
+    </div>
+    <div id="faq">
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa con mi contador actual? <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Nos encargamos de toda la transición. Si tienes documentación pendiente o contabilidad atrasada, la ponemos al día como parte del onboarding.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Por qué el precio dice "desde"? <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">El valor final depende del volumen de movimientos de tu empresa. En el diagnóstico gratuito te entregamos una cotización exacta sin compromiso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Tengo que instalar algo para el dashboard? <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">No. Recibes tu reporte mensual por correo en PDF y puedes acceder al tablero desde cualquier dispositivo. Sin instalaciones ni aprendizaje técnico.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué tan rápido responden ante una urgencia? <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Todos nuestros planes incluyen atención personalizada. Para urgencias del SII, respondemos el mismo día.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo cambiar de plan más adelante? <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Sí. La mayoría parte en Base Inteligente y migra a Consejero Activo a los 3–6 meses, cuando ya ven el valor del servicio y quieren ir más lejos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="diagnostico" style="padding:72px 0;border-bottom:none">
+  <div class="wrap">
+    <div class="final-cta">
+      <div class="section-label" style="margin-bottom:14px">¿Listo para empezar?</div>
+      <h2>Parte con un diagnóstico gratuito</h2>
+      <p>30 minutos. Sin compromiso. Te entregamos una cotización exacta y te decimos cuánto podrías estar ahorrando.</p>
+      <div class="final-actions">
+        <a href="mailto:contacto@mrtom.cl?subject=Diagnóstico gratuito MrTom" class="btn-primary">Agendar diagnóstico gratuito →</a>
+        <a href="mailto:contacto@mrtom.cl" class="btn-ghost">Tengo preguntas primero</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><strong>MrTom.</strong> &nbsp;·&nbsp; El consejero que tu empresa merece &nbsp;·&nbsp; contacto@mrtom.cl</div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
