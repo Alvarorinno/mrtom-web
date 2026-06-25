@@ -39,27 +39,28 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95)
 .btn-primary:hover { background: var(--purple-md); }
 .btn-ghost { background: transparent; color: var(--gray-4); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 14px 28px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: all .15s; text-decoration: none; display: inline-block; }
 .btn-ghost:hover { border-color: var(--gray-3); background: var(--gray-1); }
-.hero-trust { margin-top: 28px; font-size: 13px; color: var(--gray-3); display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.trust-sep::before { content: "·"; margin-right: 16px; }
+.hero-trust { margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero-trust span { font-size: 13px; font-weight: 500; color: var(--purple-dk); background: var(--purple-lt); border-radius: 20px; padding: 6px 14px; }
+.trust-sep::before { content: ""; }
 
 /* SECTIONS */
 section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .section-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
 .section-title { font-family: var(--serif); font-size: clamp(22px,3.5vw,30px); font-weight: 700; color: var(--black); margin-bottom: 12px; line-height: 1.25; letter-spacing: -.3px; }
-.section-sub { font-size: 16px; color: var(--gray-3); max-width: 520px; line-height: 1.7; }
+.section-sub { font-size: 16px; color: var(--gray-3); max-width: 100%; line-height: 1.7; }
 .section-header { margin-bottom: 36px; }
 
 /* PAIN */
 .pain-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
-.pain-card { background: var(--gray-1); border-radius: var(--radius-lg); padding: 22px; border: 1px solid var(--gray-2); transition: border-color .15s; }
+.pain-card { background: var(--gray-1); border-radius: var(--radius-lg); padding: 22px; border: 1px solid var(--gray-2); transition: border-color .15s; position: relative; overflow: visible; }
 .pain-card:hover { border-color: var(--purple-md); }
-.pain-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--purple-lt); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-.pain-icon svg { width: 17px; height: 17px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.pain-card h3 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 5px; }
+.pain-icon { position: absolute; top: -18px; right: -10px; width: 56px; height: 56px; border-radius: 50%; background: var(--purple-lt); border: 3px solid var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(60,52,137,0.13); }
+.pain-icon svg { width: 26px; height: 26px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pain-card h3 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 5px; margin-top: 10px; }
 .pain-card p { font-size: 13px; color: var(--gray-3); line-height: 1.6; }
 
 /* PROMISE ROW */
-.promise-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; }
+.promise-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; width: 100%; }
 @media(max-width:600px){ .promise-row { grid-template-columns: 1fr; } }
 .promise-block { padding: 24px; border-right: 1px solid var(--gray-2); }
 .promise-block:last-child { border-right: none; }
@@ -105,7 +106,7 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .plan-cta.filled:hover { background: var(--purple-md); }
 
 /* ADDONS */
-.addon-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px; }
+.addon-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
 .addon { border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 16px; }
 .addon-name { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
 .addon-desc { font-size: 12px; color: var(--gray-3); margin-bottom: 8px; line-height: 1.5; }
@@ -122,9 +123,13 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .step-block p { font-size: 12px; color: var(--gray-3); line-height: 1.5; }
 
 /* QUOTE */
-.quote-card { border-left: 4px solid var(--purple); padding: 22px 26px; background: var(--gray-1); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
-.quote-text { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--black); line-height: 1.65; margin-bottom: 12px; }
-.quote-attr { font-size: 13px; color: var(--gray-3); }
+.quotes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+@media(max-width:640px){ .quotes-grid { grid-template-columns: 1fr; } }
+.quote-card { border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 24px; background: var(--gray-1); display: flex; flex-direction: column; gap: 12px; }
+.quote-stars { display: flex; gap: 3px; }
+.quote-stars svg { width: 16px; height: 16px; fill: #F59E0B; stroke: none; }
+.quote-text { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--black); line-height: 1.65; flex: 1; }
+.quote-attr { font-size: 13px; color: var(--gray-3); border-top: 1px solid var(--gray-2); padding-top: 10px; }
 
 /* FAQ */
 .faq-item { border-bottom: 1px solid var(--gray-2); padding: 18px 0; cursor: pointer; }
@@ -166,7 +171,7 @@ footer strong { color: var(--purple); font-family: var(--serif); font-size: 15px
   <div class="wrap">
     <div class="eyebrow">Asesoría contable, tributaria y administrativa</div>
     <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
-    <p class="hero-sub">Miles de agencias y pymes en Chile pagan más impuestos de lo que deberían, no tienen visibilidad de su flujo y viven con miedo al SII. Nosotros lo resolvemos.</p>
+    <p class="hero-sub">Miles de agencias y pymes en Chile pagan más impuestos de lo que deberían,<br>no tienen visibilidad de su flujo y viven con miedo al SII.<br><strong style="color: var(--black)">MrTom te lo resuelve.</strong></p>
     <div class="hero-actions">
       <a href="#diagnostico" class="btn-primary">Diagnóstico gratuito →</a>
       <a href="#planes" class="btn-ghost">Ver planes y precios</a>
@@ -184,19 +189,19 @@ footer strong { color: var(--purple); font-family: var(--serif); font-size: 15px
   <div class="wrap">
     <div class="section-header">
       <div class="section-label">El problema</div>
-      <div class="section-title">El contador que tienes te cumple.<br>El que necesitas te aconseja.</div>
+      <div class="section-title">El contador que tienes te cumple.<br>MrTom te aconseja.</div>
       <p class="section-sub">¿Te identificas con alguna de estas situaciones?</p>
     </div>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-        <h3>No sabes cuánto puedes retirar</h3>
-        <p>Tienes plata en la cuenta pero no sabes si es tuya o del SII. Retiras a ojo y en abril te llega la cuenta.</p>
+        <h3>¿No sabes con cuánta plata realmente cuentas?</h3>
+        <p>Tienes plata en la cuenta corriente y no sabes el flujo.</p>
       </div>
       <div class="pain-card">
         <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
-        <h3>Tu contador aparece una vez al año</h3>
-        <p>Sin planificación, sin alertas, sin reuniones. Te enteras de los problemas cuando ya son urgentes.</p>
+        <h3>¿No logras ver bien el presupuesto?</h3>
+        <p>Ves números a fin de mes pero no tienes una comparación clara de lo que entra y lo que sale.</p>
       </div>
       <div class="pain-card">
         <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -217,7 +222,7 @@ footer strong { color: var(--purple); font-family: var(--serif); font-size: 15px
   <div class="wrap">
     <div class="section-header">
       <div class="section-label">Nuestra promesa</div>
-      <div class="section-title">Tres resultados concretos, todos los meses</div>
+      <div class="section-title">MrTom presenta tres resultados concretos todos los meses</div>
       <p class="section-sub">No vendemos horas de contador. Vendemos tranquilidad y claridad financiera.</p>
     </div>
     <div class="promise-row">
@@ -390,9 +395,40 @@ footer strong { color: var(--purple); font-family: var(--serif); font-size: 15px
       <div class="section-title">El consejero que tu empresa merece</div>
       <p class="section-sub">La diferencia no es el precio. Es tener a alguien de tu lado antes de que el problema te encuentre a ti.</p>
     </div>
-    <div class="quote-card">
-      <div class="quote-text">"Antes de MrTom sabía que algo estaba mal con mis impuestos, pero no sabía qué. En el primer mes me mostraron que estaba pagando PPM de más desde hace dos años. Esa devolución pagó el servicio por un año completo."</div>
-      <div class="quote-attr">Dueño de agencia digital · Santiago · cliente Consejero Activo</div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <div class="quote-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="quote-text">"Antes de MrTom sabía que algo estaba mal con mis impuestos, pero no sabía qué. En el primer mes me mostraron que estaba pagando PPM de más desde hace dos años. Esa devolución pagó el servicio por un año completo."</div>
+        <div class="quote-attr">Dueño de agencia digital · Santiago · cliente Consejero Activo</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="quote-text">"Testimonio 2 — reemplazar con texto real."</div>
+        <div class="quote-attr">Nombre · Ciudad · plan</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="quote-text">"Testimonio 3 — reemplazar con texto real."</div>
+        <div class="quote-attr">Nombre · Ciudad · plan</div>
+      </div>
     </div>
   </div>
 </section>
