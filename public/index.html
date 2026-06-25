@@ -619,6 +619,125 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
   </div>
 </footer>
 
+<!-- MODAL DIAGNÓSTICO -->
+<div id="modal-diagnostico" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(13,27,42,0.7); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#FAF7F2; border-radius:16px; max-width:560px; width:100%; max-height:90vh; overflow-y:auto; position:relative; box-shadow:0 24px 64px rgba(13,27,42,0.3);">
+
+    <!-- Header -->
+    <div style="background:#0D1B2A; border-radius:16px 16px 0 0; padding:24px 28px; display:flex; align-items:center; justify-content:space-between;">
+      <div>
+        <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#C9A84C; margin-bottom:4px;">Diagnóstico gratuito</div>
+        <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff;">MrTom te analiza en 2 minutos</div>
+      </div>
+      <button onclick="cerrarModal()" style="background:rgba(255,255,255,0.08); border:none; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center;">✕</button>
+    </div>
+
+    <!-- Progreso -->
+    <div style="padding:16px 28px 0; background:#fff;">
+      <div style="display:flex; gap:8px; margin-bottom:4px;">
+        <div id="prog-1" style="height:3px; flex:1; border-radius:99px; background:#C9A84C; transition:background .3s;"></div>
+        <div id="prog-2" style="height:3px; flex:1; border-radius:99px; background:#E2DFD8; transition:background .3s;"></div>
+        <div id="prog-3" style="height:3px; flex:1; border-radius:99px; background:#E2DFD8; transition:background .3s;"></div>
+      </div>
+      <div id="paso-label" style="font-size:12px; color:#6B7280; margin-bottom:0; padding-bottom:12px;">Paso 1 de 3 — Datos básicos</div>
+    </div>
+
+    <!-- PASO 1 -->
+    <div id="paso-1" style="padding:24px 28px;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <label style="display:block; font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:6px;">Nombre de la empresa</label>
+          <input id="f-empresa" type="text" placeholder="Ej: Agencia Creativa SpA" style="width:100%; padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif; outline:none; background:#fff; color:#0D1B2A;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#E2DFD8'">
+        </div>
+        <div>
+          <label style="display:block; font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:6px;">Nombre de contacto</label>
+          <input id="f-nombre" type="text" placeholder="Tu nombre" style="width:100%; padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif; outline:none; background:#fff; color:#0D1B2A;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#E2DFD8'">
+        </div>
+        <div>
+          <label style="display:block; font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:6px;">Email</label>
+          <input id="f-email" type="email" placeholder="tu@empresa.cl" style="width:100%; padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif; outline:none; background:#fff; color:#0D1B2A;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#E2DFD8'">
+        </div>
+        <div>
+          <label style="display:block; font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:10px;">¿Tu empresa vende por ecommerce?</label>
+          <div style="display:flex; gap:10px;">
+            <button onclick="seleccionarSiNo(this,'si')" data-ecom="si" style="flex:1; padding:11px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:14px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; color:#0D1B2A; transition:all .15s;">Sí</button>
+            <button onclick="seleccionarSiNo(this,'no')" data-ecom="no" style="flex:1; padding:11px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:14px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; color:#0D1B2A; transition:all .15s;">No</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px; display:flex; justify-content:flex-end;">
+        <button onclick="irPaso(2)" style="background:#0D1B2A; color:#fff; border:none; border-radius:8px; padding:12px 28px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif;">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- PASO 2 -->
+    <div id="paso-2" style="display:none; padding:24px 28px;">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+
+        <div>
+          <div style="font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:10px;">¿Cuánto factura tu empresa al mes?</div>
+          <div style="display:flex; flex-direction:column; gap:8px;" id="facturacion">
+            <button onclick="selOpc(this,'facturacion')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Menos de $10.000.000</button>
+            <button onclick="selOpc(this,'facturacion')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Entre $10.000.000 y $30.000.000</button>
+            <button onclick="selOpc(this,'facturacion')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Entre $30.000.000 y $100.000.000</button>
+            <button onclick="selOpc(this,'facturacion')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Más de $100.000.000</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:10px;">¿Cuántas facturas emites al mes?</div>
+          <div style="display:flex; flex-direction:column; gap:8px;" id="facturas">
+            <button onclick="selOpc(this,'facturas')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Menos de 10</button>
+            <button onclick="selOpc(this,'facturas')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Entre 10 y 30</button>
+            <button onclick="selOpc(this,'facturas')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Entre 30 y 100</button>
+            <button onclick="selOpc(this,'facturas')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Más de 100</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:10px;">¿Cómo controlas tus finanzas hoy?</div>
+          <div style="display:flex; flex-direction:column; gap:8px;" id="control">
+            <button onclick="selOpc(this,'control')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">No llevo ningún control</button>
+            <button onclick="selOpc(this,'control')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Excel o anotaciones propias</button>
+            <button onclick="selOpc(this,'control')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Tengo contador pero no entiendo lo que me muestra</button>
+            <button onclick="selOpc(this,'control')" style="padding:10px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Uso algún software (Nubox, Bsale, etc.)</button>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:24px; display:flex; justify-content:space-between;">
+        <button onclick="irPaso(1)" style="background:transparent; color:#6B7280; border:1px solid #E2DFD8; border-radius:8px; padding:12px 22px; font-size:14px; cursor:pointer; font-family:'Inter',sans-serif;">← Anterior</button>
+        <button onclick="irPaso(3)" style="background:#0D1B2A; color:#fff; border:none; border-radius:8px; padding:12px 28px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif;">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div id="paso-3" style="display:none; padding:24px 28px;">
+      <div style="font-size:13px; font-weight:600; color:#0D1B2A; margin-bottom:6px;">¿Cuál es tu dolor principal? <span style="font-weight:400; color:#6B7280;">(máximo 2)</span></div>
+      <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;" id="dolores">
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">No sé si estoy ganando o perdiendo</button>
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Pago demasiado en impuestos</button>
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">No entiendo mis propios números</button>
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Siempre llego tarde al SII</button>
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">No tengo tiempo para ordenarme</button>
+        <button onclick="selMultiple(this)" style="padding:11px 14px; border:1px solid #E2DFD8; border-radius:8px; background:#fff; font-size:13px; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; color:#3D4451; transition:all .15s;">Quiero crecer pero no sé si me alcanza</button>
+      </div>
+      <div style="margin-top:24px; display:flex; justify-content:space-between; align-items:center;">
+        <button onclick="irPaso(2)" style="background:transparent; color:#6B7280; border:1px solid #E2DFD8; border-radius:8px; padding:12px 22px; font-size:14px; cursor:pointer; font-family:'Inter',sans-serif;">← Anterior</button>
+        <button onclick="enviarFormulario()" style="background:#C9A84C; color:#0D1B2A; border:none; border-radius:8px; padding:12px 28px; font-size:14px; font-weight:700; cursor:pointer; font-family:'Inter',sans-serif;">Enviar diagnóstico →</button>
+      </div>
+    </div>
+
+    <!-- CONFIRMACIÓN -->
+    <div id="paso-ok" style="display:none; padding:48px 28px; text-align:center;">
+      <div style="font-size:48px; margin-bottom:16px;">✅</div>
+      <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#0D1B2A; margin-bottom:12px;">¡Diagnóstico enviado!</div>
+      <p style="font-size:15px; color:#6B7280; line-height:1.7;">Tu diagnóstico fue enviado.<br>Te contactamos en menos de <strong style="color:#0D1B2A;">24 horas.</strong></p>
+    </div>
+
+  </div>
+</div>
+
 <script>
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
@@ -626,6 +745,90 @@ document.querySelectorAll('.faq-item').forEach(item => {
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
+});
+
+// Modal
+const modal = document.getElementById('modal-diagnostico');
+
+function abrirModal() {
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function cerrarModal() {
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+modal.addEventListener('click', e => { if (e.target === modal) cerrarModal(); });
+
+// Pasos
+function irPaso(n) {
+  [1,2,3,'ok'].forEach(p => {
+    const el = document.getElementById('paso-' + p);
+    if (el) el.style.display = 'none';
+  });
+  document.getElementById('paso-' + n).style.display = 'block';
+  const labels = ['','Paso 1 de 3 — Datos básicos','Paso 2 de 3 — Tu situación actual','Paso 3 de 3 — Tu dolor principal'];
+  if (n !== 'ok') document.getElementById('paso-label').innerText = labels[n];
+  ['prog-1','prog-2','prog-3'].forEach((id, i) => {
+    document.getElementById(id).style.background = i < n ? '#C9A84C' : '#E2DFD8';
+  });
+}
+
+// Sí/No
+let ecomValue = '';
+function seleccionarSiNo(btn, val) {
+  ecomValue = val;
+  document.querySelectorAll('[data-ecom]').forEach(b => {
+    b.style.background = '#fff';
+    b.style.borderColor = '#E2DFD8';
+    b.style.color = '#0D1B2A';
+  });
+  btn.style.background = '#0D1B2A';
+  btn.style.borderColor = '#0D1B2A';
+  btn.style.color = '#fff';
+}
+
+// Opción única
+function selOpc(btn, grupo) {
+  document.querySelectorAll('#' + grupo + ' button').forEach(b => {
+    b.style.background = '#fff';
+    b.style.borderColor = '#E2DFD8';
+    b.style.color = '#3D4451';
+    b.style.fontWeight = '400';
+  });
+  btn.style.background = '#F5EDD4';
+  btn.style.borderColor = '#C9A84C';
+  btn.style.color = '#0D1B2A';
+  btn.style.fontWeight = '600';
+}
+
+// Selección múltiple máx 2
+function selMultiple(btn) {
+  const activos = document.querySelectorAll('#dolores button[data-sel="1"]');
+  if (btn.dataset.sel === '1') {
+    btn.dataset.sel = '0';
+    btn.style.background = '#fff';
+    btn.style.borderColor = '#E2DFD8';
+    btn.style.color = '#3D4451';
+    btn.style.fontWeight = '400';
+  } else if (activos.length < 2) {
+    btn.dataset.sel = '1';
+    btn.style.background = '#F5EDD4';
+    btn.style.borderColor = '#C9A84C';
+    btn.style.color = '#0D1B2A';
+    btn.style.fontWeight = '600';
+  }
+}
+
+// Enviar
+function enviarFormulario() {
+  irPaso('ok');
+  setTimeout(() => cerrarModal(), 3000);
+}
+
+// Conectar todos los botones de diagnóstico
+document.querySelectorAll('a[href="#diagnostico"]').forEach(btn => {
+  btn.addEventListener('click', e => { e.preventDefault(); abrirModal(); });
 });
 </script>
 </body>
