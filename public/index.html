@@ -120,9 +120,9 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .section-dark .pain-card h3 { color: var(--white); }
 .section-dark .pain-card p { color: rgba(255,255,255,0.5); }
 
-.section-dark .plan-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.10); }
-.section-dark .plan-card:hover { border-color: rgba(201,168,76,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
-.section-dark .plan-card.featured { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+.section-dark .plan-card { background: rgba(255,255,255,0.04); border: 2px solid var(--gold); transition: box-shadow .2s, transform .2s; }
+.section-dark .plan-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 40px rgba(201,168,76,0.35); transform: translateY(-3px); }
+.section-dark .plan-card.featured { border: 2px solid var(--gold); background: rgba(201,168,76,0.06); }
 .section-dark .plan-name { color: var(--white); }
 .section-dark .plan-sub { color: rgba(255,255,255,0.5); }
 .section-dark .plan-price { color: var(--white); }
