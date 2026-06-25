@@ -1,24 +1,14 @@
 {
   "version": 2,
   "name": "mrtom",
-  "builds": [
+  "rewrites": [
     {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     },
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/:path*",
+      "destination": "/public/:path*"
     }
   ],
   "headers": [
