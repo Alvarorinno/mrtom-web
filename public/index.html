@@ -69,10 +69,13 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .urgency-box svg { width: 18px; height: 18px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; margin-top: 2px; }
 .urgency-box p { font-size: 13px; color: var(--purple-dk); line-height: 1.6; }
 
-/* PLANS — STACKED FULL WIDTH */
-.plan-stack { display: flex; flex-direction: column; gap: 20px; }
-.plan-card { border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 28px; background: var(--white); }
+/* PLANS — SIDE BY SIDE */
+.plan-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+@media(max-width:700px){ .plan-stack { grid-template-columns: 1fr; } }
+.plan-card { border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 28px; background: var(--white); transition: border-color .2s, box-shadow .2s; cursor: default; }
+.plan-card:hover { border-color: var(--purple-md); box-shadow: 0 4px 24px rgba(60,52,137,0.10); }
 .plan-card.featured { border: 2px solid var(--purple); }
+.plan-card.featured:hover { border-color: var(--purple-md); box-shadow: 0 4px 28px rgba(60,52,137,0.16); }
 .plan-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
 .plan-left { flex: 1; min-width: 200px; }
 .plan-badge { display: inline-block; font-size: 11px; font-weight: 600; border-radius: 20px; padding: 4px 12px; margin-bottom: 10px; }
