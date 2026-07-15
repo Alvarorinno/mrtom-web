@@ -840,11 +840,13 @@ function seleccionarSiNo(btn, val) {
 // Opción única
 function selOpc(btn, grupo) {
   document.querySelectorAll('#' + grupo + ' button').forEach(b => {
+    b.dataset.sel = '0';
     b.style.background = '#fff';
     b.style.borderColor = '#E2DFD8';
     b.style.color = '#3D4451';
     b.style.fontWeight = '400';
   });
+  btn.dataset.sel = '1';
   btn.style.background = '#F5EDD4';
   btn.style.borderColor = '#C9A84C';
   btn.style.color = '#0D1B2A';
@@ -878,9 +880,9 @@ async function enviarFormulario() {
     nombre:      document.getElementById('f-nombre').value,
     email:       document.getElementById('f-email').value,
     ecommerce:   ecomValue === 'si' ? 'Sí' : 'No',
-    facturacion: document.querySelector('#facturacion button[style*="F5EDD4"]')?.innerText || 'No indicado',
-    facturas:    document.querySelector('#facturas button[style*="F5EDD4"]')?.innerText || 'No indicado',
-    control:     document.querySelector('#control button[style*="F5EDD4"]')?.innerText || 'No indicado',
+    facturacion: document.querySelector('#facturacion button[data-sel="1"]')?.innerText || 'No indicado',
+    facturas:    document.querySelector('#facturas button[data-sel="1"]')?.innerText || 'No indicado',
+    control:     document.querySelector('#control button[data-sel="1"]')?.innerText || 'No indicado',
     dolores:     doloresSeleccionados || 'No indicado',
   };
 

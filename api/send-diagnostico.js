@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Diagnóstico MrTom <tom@mrtom.cl>',
-        to: 'aguzmanlabra@gmail.com',
+        to: 'alvaro@mrtom.cl',
         subject: `Nuevo diagnóstico — ${empresa}`,
         html: `
           <div style="font-family:'Inter',sans-serif; max-width:520px; margin:0 auto;">
