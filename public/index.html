@@ -264,6 +264,10 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .faq-item.open .faq-a { max-height: 200px; margin-top: 10px; }
 .faq-item.open .faq-q svg { transform: rotate(45deg); }
 
+/* WHATSAPP ANIMATION */
+@keyframes mtDot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+@keyframes mtFadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
 /* FINAL CTA */
 .final-cta { text-align: center; padding: 72px 0; background: var(--gray-1); border-radius: var(--radius-lg); margin: 0 0 40px; }
 .final-cta h2 { font-family: var(--serif); font-size: clamp(22px,4vw,32px); font-weight: 600; color: var(--black); margin-bottom: 12px; }
@@ -536,6 +540,150 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
         <h3>Revisión mensual</h3>
         <p>Cada mes revisamos juntos los números, ajustamos la estrategia y tomamos decisiones informadas.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFORMACIÓN EN LÍNEA -->
+<section style="background:var(--cream-mid);border-bottom:1px solid var(--gray-2);">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">Nuestra diferenciación</div>
+      <div class="section-title">Información en línea, en el canal que prefieras</div>
+      <p class="section-sub">No esperas el cierre de mes para saber cómo va tu empresa. Pregúntanos por WhatsApp o entra a tu dashboard cuando quieras — los números siempre están al día.</p>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch;">
+
+      <!-- Tarjeta WhatsApp -->
+      <div style="flex:1 1 280px;min-width:260px;background:#fff;border:1px solid var(--gray-line);border-radius:20px;padding:28px;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <div style="width:16px;height:16px;border-radius:50% 50% 50% 4px;background:#fff;"></div>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:16px;color:var(--navy);">Por WhatsApp</div>
+            <div style="font-size:13px;color:var(--gray-mid);">Tu consejero 24/7</div>
+          </div>
+        </div>
+        <div style="margin:0 auto;width:240px;background:var(--navy);border-radius:34px;padding:9px;box-shadow:0 20px 40px -16px rgba(18,25,43,0.35);">
+          <div style="background:#FBFAF7;border-radius:26px;overflow:hidden;display:flex;flex-direction:column;height:460px;">
+            <div style="display:flex;justify-content:space-between;padding:8px 16px 2px;font-size:11px;font-weight:600;color:var(--navy);">
+              <span>9:41</span>
+              <span style="display:flex;gap:4px;align-items:center;"><span style="width:13px;height:7px;border:1px solid var(--navy);border-radius:2px;display:inline-block;"></span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(18,25,43,0.08);">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:var(--serif);font-style:italic;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">T</div>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:var(--navy);">MrTom</div>
+                <div style="font-size:11px;color:#25D366;display:flex;align-items:center;gap:4px;"><span style="width:5px;height:5px;border-radius:50%;background:#25D366;display:inline-block;"></span>en línea</div>
+              </div>
+            </div>
+            <div style="flex:1;padding:12px;display:flex;flex-direction:column;gap:8px;overflow:hidden;background:#F0EEE7;">
+              <!-- Ciclo A -->
+              <div id="wapp-q1" style="align-self:flex-end;max-width:80%;background:var(--navy);color:#fff;font-size:11.5px;line-height:1.4;padding:7px 11px;border-radius:14px 14px 3px 14px;">¿Cuánto vendí a Abarrotes Ltda el último mes?</div>
+              <div id="wapp-typing1" style="display:none;align-self:flex-start;background:#fff;border:1px solid rgba(18,25,43,0.08);padding:8px 12px;border-radius:14px 14px 14px 3px;gap:4px;">
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite;"></span>
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite .15s;"></span>
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite .3s;"></span>
+              </div>
+              <div id="wapp-r1" style="display:none;align-self:flex-start;max-width:82%;background:#fff;border:1px solid rgba(18,25,43,0.08);color:var(--navy);font-size:11.5px;line-height:1.4;padding:7px 11px;border-radius:14px 14px 14px 3px;">4 facturas por <b>$6.750.000</b></div>
+              <!-- Ciclo B -->
+              <div id="wapp-q2" style="display:none;align-self:flex-end;max-width:80%;background:var(--navy);color:#fff;font-size:11.5px;line-height:1.4;padding:7px 11px;border-radius:14px 14px 3px 14px;">¿Facturas por cobrar que me vencen esta semana?</div>
+              <div id="wapp-typing2" style="display:none;align-self:flex-start;background:#fff;border:1px solid rgba(18,25,43,0.08);padding:8px 12px;border-radius:14px 14px 14px 3px;gap:4px;">
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite;"></span>
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite .15s;"></span>
+                <span style="width:5px;height:5px;border-radius:50%;background:#8A8F98;display:inline-block;animation:mtDot 1.2s infinite .3s;"></span>
+              </div>
+              <div id="wapp-r2" style="display:none;align-self:flex-start;max-width:82%;background:#fff;border:1px solid rgba(18,25,43,0.08);color:var(--navy);font-size:11.5px;line-height:1.4;padding:7px 11px;border-radius:14px 14px 14px 3px;">Esta semana se vence 1 factura: Triplox — <b>$1.250.000</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Dashboard -->
+      <div style="flex:1.4 1 420px;min-width:300px;background:#fff;border:1px solid var(--gray-line);border-radius:20px;padding:28px;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;gap:2px;">
+            <span style="width:4px;height:9px;background:var(--gold);border-radius:1px;display:inline-block;"></span>
+            <span style="width:4px;height:15px;background:var(--gold);border-radius:1px;display:inline-block;"></span>
+            <span style="width:4px;height:6px;background:var(--gold);border-radius:1px;display:inline-block;"></span>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:16px;color:var(--navy);">Por tu dashboard</div>
+            <div style="font-size:13px;color:var(--gray-mid);">Entra cuando quieras, sin pedir nada</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--gray-line);border-radius:14px;overflow:hidden;box-shadow:0 16px 40px -20px rgba(18,25,43,0.2);">
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--gray-line);background:#F3F1EC;">
+            <span style="width:9px;height:9px;border-radius:50%;background:#D8D2C4;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#D8D2C4;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#D8D2C4;display:inline-block;"></span>
+            <div style="margin:0 auto;background:#fff;border:1px solid var(--gray-line);border-radius:20px;padding:4px 16px;font-size:11px;color:var(--gray-mid);">app.mrtom.cl</div>
+          </div>
+          <div style="padding:16px;background:#fff;">
+            <div style="background:var(--navy);border-radius:10px;padding:16px 18px;margin-bottom:14px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">Tu empresa está sana</div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div><div style="font-size:10px;color:#9AA3B5;">Ganancia del año</div><div style="font-size:15px;font-weight:700;color:#fff;">$184.500.000</div></div>
+                <div><div style="font-size:10px;color:#9AA3B5;">Venta promedio</div><div style="font-size:15px;font-weight:700;color:#fff;">$42.300.000</div></div>
+                <div><div style="font-size:10px;color:#9AA3B5;">Margen bruto</div><div style="font-size:15px;font-weight:700;color:#fff;">38%</div></div>
+                <div><div style="font-size:10px;color:#9AA3B5;">Margen neto</div><div style="font-size:15px;font-weight:700;color:#fff;">22%</div></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <div style="flex:1 1 160px;background:#FBFAF7;border:1px solid rgba(18,25,43,0.06);border-radius:10px;padding:12px;">
+                <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px;">Ganancias / pérdidas</div>
+                <div style="display:flex;align-items:flex-end;gap:4px;height:48px;">
+                  <div style="flex:1;background:var(--navy);height:55%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--navy);height:70%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--navy);height:45%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--navy);height:85%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--navy);height:65%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--gold);height:100%;border-radius:2px;"></div>
+                </div>
+                <div style="font-size:10px;color:var(--gray-mid);margin-top:6px;">Junio: <b style="color:var(--navy);">$15.200.000</b></div>
+              </div>
+              <div style="flex:1 1 160px;background:#FBFAF7;border:1px solid rgba(18,25,43,0.06);border-radius:10px;padding:12px;">
+                <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px;">Ventas totales</div>
+                <div style="display:flex;align-items:flex-end;gap:4px;height:48px;">
+                  <div style="flex:1;background:var(--gold);height:60%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--gold);height:75%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--gold);height:68%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--gold);height:90%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--gold);height:80%;border-radius:2px;"></div>
+                  <div style="flex:1;background:var(--navy);height:100%;border-radius:2px;"></div>
+                </div>
+                <div style="font-size:10px;color:var(--gray-mid);margin-top:6px;">Junio: <b style="color:var(--navy);">$46.800.000</b></div>
+              </div>
+              <div style="flex:1 1 160px;background:#FBFAF7;border:1px solid rgba(18,25,43,0.06);border-radius:10px;padding:12px;">
+                <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px;">Caja disponible</div>
+                <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">$57.500.000</div>
+                <div style="display:flex;height:7px;border-radius:4px;overflow:hidden;margin-bottom:8px;">
+                  <div style="width:66%;background:var(--navy);"></div>
+                  <div style="width:26%;background:var(--gold);"></div>
+                  <div style="width:8%;background:#B7AE9A;"></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:3px;font-size:10px;color:var(--gray-mid);">
+                  <div style="display:flex;justify-content:space-between;"><span>Bancos</span><span style="color:var(--navy);font-weight:600;">$38.200.000</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span>Inversiones</span><span style="color:var(--navy);font-weight:600;">$15.000.000</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span>Otros</span><span style="color:var(--navy);font-weight:600;">$4.300.000</span></div>
+                </div>
+              </div>
+              <div style="flex:1 1 160px;background:#FBFAF7;border:1px solid rgba(18,25,43,0.06);border-radius:10px;padding:12px;">
+                <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:8px;">Cuentas por cobrar</div>
+                <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">$13.700.000</div>
+                <div style="display:flex;flex-direction:column;gap:5px;font-size:10px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:#B4543A;font-weight:600;">Vencido</span><span style="color:var(--navy);font-weight:600;">$2.100.000</span></div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:var(--gray-mid);">≤ 30 días</span><span style="color:var(--navy);font-weight:600;">$8.400.000</span></div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:var(--gray-mid);">+ 30 días</span><span style="color:var(--navy);font-weight:600;">$3.200.000</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -891,6 +1039,41 @@ async function enviarFormulario() {
 document.querySelectorAll('a[href="#diagnostico"]').forEach(btn => {
   btn.addEventListener('click', e => { e.preventDefault(); abrirModal(); });
 });
+
+// WhatsApp chat animation — loop completo: q1→r1→q2→r2→reset
+(function() {
+  const ids = ['wapp-q1','wapp-typing1','wapp-r1','wapp-q2','wapp-typing2','wapp-r2'];
+  const el = {};
+  ids.forEach(id => { el[id] = document.getElementById(id); });
+  if (!el['wapp-q1']) return;
+
+  function hide(id) { if(el[id]) el[id].style.display = 'none'; }
+  function show(id, flex) { if(el[id]) { el[id].style.display = flex ? 'flex' : 'block'; el[id].style.animation = 'mtFadeUp .35s ease'; } }
+
+  let timers = [];
+  function after(ms, fn) { timers.push(setTimeout(fn, ms)); }
+
+  function runCycle() {
+    timers.forEach(clearTimeout); timers = [];
+    ids.forEach(id => hide(id));
+
+    // Pregunta 1
+    after(400,  () => show('wapp-q1'));
+    // Typing 1
+    after(1800, () => show('wapp-typing1', true));
+    // Respuesta 1
+    after(3200, () => { hide('wapp-typing1'); show('wapp-r1'); });
+    // Pregunta 2
+    after(4800, () => show('wapp-q2'));
+    // Typing 2
+    after(6200, () => show('wapp-typing2', true));
+    // Respuesta 2
+    after(7600, () => { hide('wapp-typing2'); show('wapp-r2'); });
+    // Pausa y reinicio
+    after(11000, runCycle);
+  }
+  runCycle();
+})();
 </script>
 </body>
 </html>
