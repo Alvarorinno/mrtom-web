@@ -58,50 +58,63 @@ body { font-family: var(--sans); font-size: 16px; line-height: 1.7; color: var(-
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
 /* NAV */
-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
-.nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: transparent; padding: 0 24px; transition: padding .35s; }
+nav.scrolled { padding: 12px 24px; }
+.nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; background: transparent; border-radius: 0; border: none; transition: background .35s, border-radius .35s, border .35s, box-shadow .35s, padding .35s; }
+nav.scrolled .nav-inner { background: rgba(18,25,43,0.96); backdrop-filter: blur(12px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.10); box-shadow: 0 8px 32px rgba(0,0,0,0.35); padding: 0 24px; }
 .nav-links { display: flex; gap: 10px; align-items: center; }
+
+/* Logo blanco sobre hero */
+.nav-logo .tom { font-family: var(--serif); font-size: 32px; font-weight: 600; letter-spacing: -0.01em; color: #fff; line-height: 1; }
+.nav-logo .logo-divider { width: 0.5px; background: rgba(255,255,255,0.4); height: 36px; flex-shrink: 0; }
+
+/* Botones blancos sobre hero */
+.nav-cta { border-radius: var(--radius); padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: var(--sans); transition: all .2s; }
+.nav-cta-ghost { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.35); }
+.nav-cta-ghost:hover { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.6); }
+.nav-cta-solid { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px); display: inline-flex; align-items: center; gap: 7px; }
+.nav-cta-solid:hover { background: rgba(255,255,255,0.28); }
 
 /* Hamburger */
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all .25s; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .25s; }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile menu */
-.nav-mobile { display: none; flex-direction: column; background: #fff; border-top: 1px solid var(--gray-line); padding: 16px 24px; gap: 10px; }
+.nav-mobile { display: none; flex-direction: column; background: rgba(18,25,43,0.98); border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; gap: 10px; }
 .nav-mobile.open { display: flex; }
-.nav-mobile a { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--navy); border: 1px solid var(--gray-line); transition: background .15s; }
-.nav-mobile a:first-child { background: var(--navy); color: #fff; border-color: var(--navy); }
-.nav-mobile a:hover { background: var(--cream); }
-.nav-mobile a:first-child:hover { background: var(--navy-soft); }
+.nav-mobile a { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.12); transition: background .15s; }
+.nav-mobile a:first-child { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.25); }
+.nav-mobile a:hover { background: rgba(255,255,255,0.1); }
 
 @media(max-width: 640px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 }
 .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
-.nav-logo .logo-divider { width: 0.5px; background: rgba(13,27,42,0.18); height: 36px; flex-shrink: 0; }
 .nav-logo .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .nav-logo .mr { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
-.nav-logo .tom { font-family: var(--serif); font-size: 32px; font-weight: 600; letter-spacing: -0.01em; color: var(--navy); line-height: 1; }
 
 .footer-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
 .footer-logo .logo-divider { width: 0.5px; background: rgba(201,168,76,0.25); height: 26px; flex-shrink: 0; }
 .footer-logo .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .footer-logo .mr { font-family: var(--sans); font-size: 8px; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
 .footer-logo .tom { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: var(--white); line-height: 1; }
-.nav-cta { background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: var(--sans); transition: background .15s; }
-.nav-cta:hover { background: var(--navy-soft); }
+
 
 /* HERO */
-.hero { padding: 72px 0 32px; border-bottom: 1px solid var(--gray-2); }
+.hero { padding: 0; border-bottom: none; position: relative; overflow: hidden; background: var(--navy); height: 100vh; min-height: 680px; display: flex; align-items: stretch; }
+.hero-bg { position: absolute; inset: 0; background-image: url('/hero-bg.webp'); background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,10,20,0.82) 0%, rgba(5,10,20,0.65) 38%, rgba(5,10,20,0.15) 62%, transparent 80%); }
+.hero .wrap { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; height: 100%; padding-top: 72px; padding-bottom: 48px; max-width: 100%; padding-left: 5vw; padding-right: 55%; }
+.hero-text { max-width: 480px; }
 
-.eyebrow { display: block; width: 100%; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy); background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; text-align: center; }
-.hero h1 { font-family: var(--serif); font-size: clamp(28px,5vw,52px); font-weight: 600; line-height: 1.15; color: var(--navy); margin-bottom: 16px; letter-spacing: -.3px; max-width: 100%; }
+.eyebrow { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); border-radius: 20px; padding: 8px 16px; margin-bottom: 20px; white-space: nowrap; }
+.hero h1 { font-family: var(--serif); font-size: clamp(32px, 3.8vw, 52px); font-weight: 600; line-height: 1.12; color: #fff; margin-bottom: 16px; letter-spacing: -.3px; max-width: 520px; }
 .hero h1 em { font-style: italic; color: var(--gold); }
-.hero-sub { font-size: clamp(12px, 1.4vw, 15px); color: var(--gray-mid); margin-bottom: 32px; line-height: 1.7; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.80); margin-bottom: 28px; line-height: 1.6; max-width: 520px; white-space: normal; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .btn-primary { background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--sans); transition: background .15s; text-decoration: none; display: inline-block; }
@@ -120,9 +133,9 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95)
 .hero-card-cta { display: block; text-align: center; background: var(--gold); color: var(--navy); border-radius: var(--radius); padding: 13px 24px; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity .15s; }
 .hero-card-cta:hover { opacity: 0.88; }
 
-.hero-trust { margin-top: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.hero-trust span { font-size: 15px; font-weight: 500; color: var(--gray-dark); display: flex; align-items: center; gap: 8px; }
-.hero-trust span::before { content: "✓"; color: var(--gold); font-weight: 700; font-size: 17px; }
+.hero-trust { margin-top: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: nowrap; }
+.hero-trust span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.hero-trust span::before { content: "✓"; color: var(--gold); font-weight: 700; font-size: 15px; }
 .trust-sep::before { content: ""; }
 
 /* SECTIONS */
@@ -277,8 +290,15 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 /* FOOTER */
 footer { padding: 40px 0; background: var(--navy); text-align: center; font-size: 13px; color: rgba(255,255,255,0.45); }
 
+@media(max-width:640px){
+  .hero { height: auto; min-height: unset; }
+  .hero-bg { display: none; }
+  .hero-overlay { background: var(--cream); }
+  .hero .wrap { padding-top: 80px !important; padding-bottom: 48px !important; max-width: 100% !important; }
+  .hero-sub { white-space: normal; }
+}
 @media(max-width:480px){
-  .hero { padding: 52px 0 48px; }
+  .hero { padding: 0; }
   section { padding: 48px 0; }
   .plan-right { text-align: left; }
 }
@@ -290,10 +310,10 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <svg viewBox="0 0 120 120" width="44" height="44">
-        <text x="60" y="76" font-family="Newsreader" font-style="italic" font-weight="600" font-size="76" text-anchor="middle" fill="#12192b">T</text>
+        <text x="60" y="76" font-family="Newsreader" font-style="italic" font-weight="600" font-size="76" text-anchor="middle" fill="#fff">T</text>
         <path d="M 28 94 Q 60 108 92 90" stroke="#c8a24a" stroke-width="4" fill="none" stroke-linecap="round"/>
       </svg>
-      <div style="width:1px;height:34px;background:#c8a24a;flex-shrink:0;"></div>
+      <div class="logo-divider"></div>
       <div class="logo-text">
         <span class="mr">MR.</span>
         <span class="tom">Tom</span>
@@ -301,11 +321,10 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
     </a>
     <!-- Desktop -->
     <div class="nav-links">
-      <a href="https://app.mrtom.cl/dashboard" target="_blank" class="nav-cta" style="background:transparent; border:1px solid var(--gold); color:var(--gold);">Dashboard</a>
-      <a href="#planes" class="nav-cta">Ver planes</a>
-      <a href="https://app.mrtom.cl/empresas" target="_blank" class="nav-cta" style="background:transparent; border:1px solid var(--navy-soft); color:var(--navy); display:inline-flex; align-items:center; gap:7px;">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        Mi portal
+      <a href="#planes" class="nav-cta nav-cta-ghost">Ver planes</a>
+      <a href="https://app.mrtom.cl/empresas" target="_blank" class="nav-cta nav-cta-solid">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Ingresar
       </a>
     </div>
     <!-- Hamburger -->
@@ -317,26 +336,27 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
   <div class="nav-mobile" id="nav-mobile">
     <a href="https://app.mrtom.cl/empresas" target="_blank">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Mi portal
+      Ingresar
     </a>
     <a href="#planes" onclick="toggleMenu()">Ver planes</a>
-    <a href="https://app.mrtom.cl/dashboard" target="_blank">Dashboard</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="wrap">
-    <div class="eyebrow">Asesoría Administrativa, Financiera y Contable Personalizada</div>
-    <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
-    <p class="hero-sub">Miles de empresas y pymes en Chile pagan más impuestos de lo que deberían. <strong style="color: var(--gold); font-weight: 600;">MrTom te lo resuelve.</strong></p>
-    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-top:20px;">
-      <div class="hero-trust" style="margin-top:0;">
+    <div class="hero-text">
+      <div class="eyebrow">Asesoría Administrativa, Financiera y Contable Personalizada</div>
+      <h1>¿Tu empresa factura bien pero no sabes si realmente <em>estás ganando?</em></h1>
+      <p class="hero-sub">Miles de empresas y pymes en Chile pagan más impuestos de lo que deberían. <strong style="color: var(--gold); font-weight: 600;">MrTom te lo resuelve.</strong></p>
+      <div class="hero-trust" style="margin-bottom:24px;">
         <span>Sin compromiso inicial</span>
         <span>Respuesta en 24 hrs</span>
         <span>Dashboard incluido</span>
       </div>
-      <a href="#diagnostico" class="btn-primary">Diagnóstico gratuito →</a>
+      <a href="https://app.mrtom.cl/demo" target="_blank" class="btn-primary">Conoce nuestra plataforma →</a>
     </div>
   </div>
 </section>
@@ -706,7 +726,7 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="quote-text">"Llevaba dos años facturando bien pero sin entender por qué nunca me sobraba plata. MrTom me mostró en la primera reunión que estaba pagando PPM de más. En tres meses ordenamos todo."</div>
-        <div class="quote-attr">Jorge · Nodo Talentos · cliente Consejero Activo</div>
+        <div class="quote-attr">Jorge · Manila SpA · cliente Consejero Activo</div>
       </div>
       <div class="quote-card">
         <div class="quote-stars">
@@ -918,6 +938,17 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 </div>
 
 <script>
+// Nav scroll
+(function() {
+  const nav = document.querySelector('nav');
+  function updateNav() {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+})();
+
 function toggleMenu() {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('nav-mobile');
