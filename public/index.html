@@ -293,12 +293,17 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 @media(max-width:640px){
   .hero { height: auto; min-height: unset; }
   .hero-bg { display: none; }
-  .hero-overlay { background: var(--cream); }
-  .hero .wrap { padding-top: 80px !important; padding-bottom: 48px !important; max-width: 100% !important; }
-  .hero-sub { white-space: normal; }
+  .hero-overlay { background: var(--navy); }
+  .hero .wrap { padding-top: 96px !important; padding-bottom: 52px !important; padding-right: 20px !important; padding-left: 20px !important; max-width: 100% !important; }
+  .hero-text { max-width: 100%; }
+  .eyebrow { font-size: 9px; letter-spacing: 0.10em; padding: 7px 14px; white-space: normal; line-height: 1.4; }
+  .hero h1 { font-size: clamp(28px, 9vw, 38px); max-width: 100%; }
+  .hero-sub { font-size: 14px; color: rgba(255,255,255,0.75); }
+  .hero-trust { flex-wrap: wrap; gap: 12px; }
+  .hero-trust span { font-size: 13px; color: rgba(255,255,255,0.80); }
+  .btn-primary { width: 100%; text-align: center; padding: 16px 24px; font-size: 15px; box-sizing: border-box; }
 }
 @media(max-width:480px){
-  .hero { padding: 0; }
   section { padding: 48px 0; }
   .plan-right { text-align: left; }
 }
