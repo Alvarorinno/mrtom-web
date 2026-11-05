@@ -152,12 +152,6 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .section-dark .section-label { color: var(--gold); }
 
 /* Cards oscuras */
-.section-dark .pain-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
-.section-dark .pain-card:hover { border-color: rgba(201,168,76,0.4); }
-.section-dark .pain-icon { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.2); }
-.section-dark .pain-icon svg { stroke: var(--gold); }
-.section-dark .pain-card h3 { color: var(--white); }
-.section-dark .pain-card p { color: rgba(255,255,255,0.5); }
 
 .section-dark .plan-card { background: rgba(255,255,255,0.04); border: 2px solid var(--gold) !important; transition: box-shadow .2s, transform .2s; }
 .section-dark .plan-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 40px rgba(201,168,76,0.35); transform: translateY(-3px); }
@@ -189,24 +183,8 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 .section-dark .faq-a { color: rgba(255,255,255,0.5); }
 
 /* PAIN */
-.pain-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
-.pain-card { background: var(--gray-1); border-radius: var(--radius-lg); padding: 22px; border: 1px solid var(--gray-2); transition: border-color .15s; position: relative; overflow: visible; }
-.pain-card:hover { border-color: var(--purple-md); }
-.pain-icon { position: absolute; top: -18px; right: -10px; width: 56px; height: 56px; border-radius: 50%; background: var(--purple-lt); border: 3px solid var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(60,52,137,0.13); }
-.pain-icon svg { width: 26px; height: 26px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.pain-card h3 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 5px; margin-top: 10px; }
-.pain-card p { font-size: 13px; color: var(--gray-3); line-height: 1.6; }
 
 /* PROMISE ROW */
-.promise-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; width: 100%; }
-@media(max-width:600px){ .promise-row { grid-template-columns: 1fr; } }
-.promise-block { padding: 24px; border-right: 1px solid var(--gray-2); }
-.promise-block:last-child { border-right: none; }
-.promise-block h3 { font-size: 14px; font-weight: 600; color: var(--purple); margin-bottom: 8px; }
-.promise-block p { font-size: 13px; color: var(--gray-3); line-height: 1.6; }
-.urgency-box { background: var(--purple-lt); border-radius: var(--radius); padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; }
-.urgency-box svg { width: 18px; height: 18px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; margin-top: 2px; }
-.urgency-box p { font-size: 13px; color: var(--purple-dk); line-height: 1.6; }
 
 /* PLANS — SIDE BY SIDE */
 .plan-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
@@ -309,6 +287,7 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
   .plan-right { text-align: left; }
 }
 </style>
+<link rel="stylesheet" href="/mrtom-secciones.css">
 </head>
 <body>
 
@@ -363,67 +342,58 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
   </div>
 </section>
 
-<!-- DOLOR -->
-<section class="section-dark">
-  <div class="wrap">
-    <div class="section-header">
-      <div class="section-label">El problema</div>
-      <div class="section-title" style="white-space: nowrap; font-size: clamp(14px, 2.5vw, 26px);">El contador que tienes te cumple. MrTom te aconseja.</div>
-      <p class="section-sub">¿Te identificas con alguna de estas situaciones?</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-        <h3>¿No sabes con cuánta plata realmente cuentas?</h3>
-        <p>Tienes plata en la cuenta corriente y no sabes el flujo.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
-        <h3>¿No logras ver bien el presupuesto?</h3>
-        <p>Ves números a fin de mes pero no tienes una comparación clara de lo que entra y lo que sale.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>PPM que asfixian tu flujo</h3>
-        <p>Pagas PPM de más cada mes y esperas la devolución al año siguiente. Ese dinero podría estar trabajando para ti.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Miedo a una fiscalización del SII</h3>
-        <p>No tienes certeza de que todo esté bien. Y si llega una notificación, no tienes a nadie que te respalde.</p>
-      </div>
-    </div>
-  </div>
+<!-- EL PROBLEMA -->
+<div class="mt">
+<section class="sec dark" id="problema">
+ <div class="wrap">
+  <div class="head rv"><h2>El contador que tienes te cumple.<br><em>MrTom te aconseja.</em></h2><p class="lead">Cuatro situaciones que vemos en casi todos los diagnósticos.</p></div>
+  <div class="acc acc-b3 rv" style="--d:1"><button class="pan open" type="button"><span class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="gFB30" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8a24a" stop-opacity=".55"/><stop offset="1" stop-color="#c8a24a" stop-opacity="0"/></linearGradient></defs><path d="M0 260 L60 235 L110 245 L170 190 L220 205 L280 130 L330 140 L375 62 L400 62 L400 300 L0 300Z" fill="url(#gFB30)"/><path class="ln" d="M0 260 L60 235 L110 245 L170 190 L220 205 L280 130 L330 140 L375 62" fill="none" stroke="#c8a24a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M352 62 L376 60 L372 84" fill="none" stroke="#c8a24a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="kw">Flujo</span><span class="body"><span class="q">¿Sabes con cuánta plata <em>realmente</em> cuentas?</span><span class="d">Ves saldo en la cuenta, pero no el flujo. No sabes cuánto ya es del IVA, los sueldos y los proveedores.</span><span class="chip">Saldo $38,2 M → disponible real <b>$19,6 M</b></span></span></button>
+<button class="pan" type="button"><span class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="gPB31" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8a24a" stop-opacity=".6"/><stop offset="1" stop-color="#c8a24a" stop-opacity=".05"/></linearGradient><linearGradient id="gRB31" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e08a97" stop-opacity=".8"/><stop offset="1" stop-color="#e08a97" stop-opacity=".08"/></linearGradient></defs><g class="bars"><rect x="30" y="170" width="52" height="130" fill="url(#gPB31)"/><rect x="110" y="150" width="52" height="150" fill="url(#gPB31)"/><rect x="190" y="160" width="52" height="140" fill="url(#gPB31)"/><rect x="270" y="80" width="52" height="220" fill="url(#gRB31)"/></g><line x1="10" y1="140" x2="390" y2="140" stroke="#f7f4ee" stroke-opacity=".5" stroke-width="2" stroke-dasharray="8 8"/></svg></span><span class="kw">Presupuesto</span><span class="body"><span class="q">¿Ves tu presupuesto o solo el resultado?</span><span class="d">Llegan números a fin de mes, sin comparar lo que esperabas con lo que realmente entró y salió.</span><span class="chip">Octubre: <b>39% sobre lo presupuestado</b></span></span></button>
+<button class="pan" type="button"><span class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="gCB32" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9b866" stop-opacity=".7"/><stop offset="1" stop-color="#c8a24a" stop-opacity=".1"/></linearGradient></defs><g class="coins" fill="url(#gCB32)" stroke="#c8a24a" stroke-width="2.5"><ellipse cx="150" cy="270" rx="90" ry="22"/><ellipse cx="150" cy="240" rx="90" ry="22"/><ellipse cx="150" cy="210" rx="90" ry="22"/><ellipse cx="150" cy="180" rx="90" ry="22"/><ellipse class="c5" cx="150" cy="150" rx="90" ry="22"/><ellipse class="c6" cx="150" cy="120" rx="90" ry="22"/></g><path d="M260 110 Q320 70 370 90" fill="none" stroke="#f7f4ee" stroke-opacity=".55" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/><path d="M352 76 L372 90 L350 100" fill="none" stroke="#f7f4ee" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="kw">PPM</span><span class="body"><span class="q">PPM que asfixian tu flujo</span><span class="d">Pagas PPM de más cada mes y esperas la devolución al año siguiente. Ese dinero podría estar trabajando para ti.</span><span class="chip"><b>$5,5 M</b> inmovilizados hasta abril</span></span></button>
+<button class="pan" type="button"><span class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="gSB33" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f4ee" stop-opacity=".35"/><stop offset="1" stop-color="#f7f4ee" stop-opacity=".02"/></linearGradient></defs><g class="doc"><rect x="70" y="60" width="210" height="260" rx="6" fill="url(#gSB33)" stroke="#f7f4ee" stroke-opacity=".5" stroke-width="2.5"/><line x1="100" y1="110" x2="250" y2="110" stroke="#f7f4ee" stroke-opacity=".45" stroke-width="4" stroke-linecap="round"/><line x1="100" y1="140" x2="230" y2="140" stroke="#f7f4ee" stroke-opacity=".35" stroke-width="4" stroke-linecap="round"/><line x1="100" y1="170" x2="240" y2="170" stroke="#f7f4ee" stroke-opacity=".35" stroke-width="4" stroke-linecap="round"/></g><g class="seal"><circle cx="290" cy="200" r="56" fill="none" stroke="#e08a97" stroke-width="4"/><circle cx="290" cy="200" r="44" fill="#e08a97" fill-opacity=".18"/><path d="M290 172 L290 206" stroke="#e08a97" stroke-width="6" stroke-linecap="round"/><circle cx="290" cy="224" r="4.5" fill="#e08a97"/></g></svg></span><span class="kw">SII</span><span class="body"><span class="q">Miedo a una fiscalización</span><span class="d">No tienes certeza de que todo esté bien. Y si llega una notificación, no tienes a nadie de tu lado.</span><span class="chip alert">Citación SII · <b>sin responsable</b></span></span></button>
+</div>
+  <div class="foot rv" style="--d:2"><span class="fine">Cifras de ejemplo.</span><a class="btn ghost-btn" href="#diagnostico">Veamos tu caso en 30 minutos →</a></div>
+ </div>
 </section>
+</div>
 
-<!-- PROMESA -->
-<section>
-  <div class="wrap">
-    <div class="section-header">
-      <div class="section-label">Nuestra promesa</div>
-      <div class="section-title">MrTom presenta tres resultados concretos todos los meses</div>
-      <p class="section-sub">No vendemos horas de contador. Vendemos tranquilidad y claridad financiera.</p>
-    </div>
-    <div class="promise-row">
-      <div class="promise-block">
-        <h3>Claridad para decidir</h3>
-        <p>Dashboard mensual con balance, flujo y proyección. Sabes exactamente cómo está tu empresa.</p>
-      </div>
-      <div class="promise-block">
-        <h3>Cero sorpresas con el SII</h3>
-        <p>Todo al día, alertas anticipadas, cero multas. Si llega una fiscalización, estamos contigo.</p>
-      </div>
-      <div class="promise-block">
-        <h3>Seguimiento total</h3>
-        <p>Presupuesto mensual activo, seguimiento de cobros a clientes y pagos a proveedores. Sabes quién te debe, a quién debes y cómo va tu caja — sin buscar datos.</p>
-      </div>
-    </div>
-    <div class="urgency-box">
-      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <p><strong>El PPM no es fijo — es negociable.</strong> Si tu utilidad proyectada es menor a tus pagos acumulados, el SII puede reducir o suspender tu tasa mensual. Eso es flujo real en tu cuenta ahora, no una devolución el próximo año.</p>
-    </div>
+<!-- NUESTRA PROMESA -->
+<div class="mt">
+<section class="sec light" id="promesa">
+ <div class="wrap">
+  <div class="caluga c-medio rv">
+   <div class="tabs-wrap">
+  <div class="tabs-l rv">
+   <h2>No prometemos horas.<br><em>Te mostramos resultados.</em></h2>
+   <div class="tabs" role="tablist">
+    <button class="tab on" role="tab" type="button" data-t="0"><span class="tt">Claridad para decidir</span><span class="td">Balance, flujo y proyección cada mes.</span><span class="pg"><i></i></span></button>
+    <button class="tab" role="tab" type="button" data-t="1"><span class="tt">Cero sorpresas con el SII</span><span class="td">Todo al día, alertas anticipadas, cero multas.</span><span class="pg"><i></i></span></button>
+    <button class="tab" role="tab" type="button" data-t="2"><span class="tt">Seguimiento total</span><span class="td">Quién te debe, a quién debes y cómo va tu caja.</span><span class="pg"><i></i></span></button>
+   </div>
+   <p class="ppmline"><em>El PPM no es fijo, es negociable.</em> Lo revisamos cada trimestre.</p>
   </div>
+  <div class="screen rv" style="--d:2">
+   <div class="sbar"><span></span><span></span><span></span><b>app.mrtom.cl</b></div>
+   <div class="pane on" data-p="0">
+    <div class="ptitle">Tu empresa está sana <span>Junio</span></div>
+    <div class="kpis"><div><small>Venta promedio</small><b>$42,3 M</b></div><div><small>Margen bruto</small><b>38%</b></div><div><small>Margen neto</small><b class="gold">22%</b></div></div>
+    <div class="chart" aria-hidden="true"><i style="--h:48%"></i><i style="--h:56%"></i><i style="--h:52%"></i><i style="--h:66%"></i><i style="--h:61%"></i><i style="--h:74%"></i><i style="--h:80%"></i><i style="--h:92%"></i></div>
+   </div>
+   <div class="pane" data-p="1">
+    <div class="ptitle">Calendario tributario <span>Noviembre</span></div>
+    <ul class="cal-list"><li><span>IVA (F29) · octubre</span><b class="ok">Pagado 12 nov</b></li><li><span>Previred · octubre</span><b class="ok">Pagado 10 nov</b></li><li><span>Revisión trimestral PPM</span><b class="gold">2 dic</b></li><li><span>Notificaciones SII</span><b class="ok">Ninguna pendiente</b></li></ul>
+   </div>
+   <div class="pane" data-p="2">
+    <div class="ptitle">Por cobrar esta semana <span>Caja $57,5 M</span></div>
+    <ul class="cal-list"><li><span>Triplox</span><b class="warn">Vence viernes · $1.250.000</b></li><li><span>Abarrotes Ltda</span><b>En 12 días · $6.750.000</b></li><li><span>Proveedores por pagar</span><b>3 · $4.120.000</b></li></ul>
+    <div class="wa"><span class="wq">¿Facturas que me vencen esta semana?</span><span class="wr">1 factura: Triplox — <b>$1.250.000</b></span></div>
+   </div>
+  </div>
+ </div>
+  </div>
+ </div>
 </section>
+</div>
 
 <!-- PLANES -->
 <section id="planes" class="section-dark">
@@ -1108,5 +1078,6 @@ document.querySelectorAll('a[href="#diagnostico"]').forEach(btn => {
   runCycle();
 })();
 </script>
+<script src="/mrtom-secciones.js"></script>
 </body>
 </html>
