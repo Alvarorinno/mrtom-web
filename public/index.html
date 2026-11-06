@@ -153,22 +153,6 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 
 /* Cards oscuras */
 
-.section-dark .plan-card { background: rgba(255,255,255,0.04); border: 2px solid var(--gold) !important; transition: box-shadow .2s, transform .2s; }
-.section-dark .plan-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 40px rgba(201,168,76,0.35); transform: translateY(-3px); }
-.section-dark .plan-card.featured { border: 2px solid var(--gold); background: rgba(201,168,76,0.06); }
-.section-dark .plan-name { color: var(--white); }
-.section-dark .plan-sub { color: rgba(255,255,255,0.5); }
-.section-dark .plan-price { color: var(--white); }
-.section-dark .plan-price span { color: rgba(255,255,255,0.4); }
-.section-dark .plan-note { color: rgba(255,255,255,0.35); }
-.section-dark .plan-divider { background: rgba(255,255,255,0.08); }
-.section-dark .plan-col-label { color: rgba(255,255,255,0.35); }
-.section-dark .plan-items li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.06); }
-.section-dark .plan-items li svg { stroke: var(--gold); }
-.section-dark .plan-promise { color: rgba(255,255,255,0.45); border-left-color: var(--gold); }
-.section-dark .plan-cta { border-color: rgba(255,255,255,0.25); color: var(--white); }
-.section-dark .plan-cta:hover { background: rgba(255,255,255,0.07); }
-.section-dark .plan-cta.filled { background: var(--gold); color: var(--navy); border-color: var(--gold); }
 
 .section-dark .steps-grid { border-color: rgba(255,255,255,0.08); }
 .section-dark .step-block { border-right-color: rgba(255,255,255,0.08); }
@@ -187,46 +171,8 @@ section { padding: 64px 0; border-bottom: 1px solid var(--gray-2); }
 /* PROMISE ROW */
 
 /* PLANS — SIDE BY SIDE */
-.plan-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
-@media(max-width:700px){ .plan-stack { grid-template-columns: 1fr; } }
-.plan-card { border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 28px; background: var(--white); transition: border-color .2s, box-shadow .2s; cursor: default; }
-.plan-card:hover { border-color: var(--purple-md); box-shadow: 0 4px 24px rgba(60,52,137,0.10); }
-.plan-card.featured { border: 2px solid var(--gold); }
-.plan-card.featured:hover { border-color: var(--gold-light); box-shadow: 0 4px 28px rgba(201,168,76,0.20); }
-.plan-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
-.plan-left { flex: 1; min-width: 200px; }
-.plan-badge { display: inline-block; font-size: 11px; font-weight: 600; border-radius: 20px; padding: 4px 12px; margin-bottom: 10px; }
-.badge-p { background: var(--purple-lt); color: var(--purple); }
-.badge-t { background: var(--teal-lt); color: var(--teal); }
-.plan-name { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--black); margin-bottom: 5px; }
-.plan-sub { font-size: 13px; color: var(--gray-3); line-height: 1.5; max-width: 380px; }
-.plan-right { text-align: right; }
-.plan-price { font-size: 28px; font-weight: 600; color: var(--black); }
-.plan-price span { font-size: 16px; font-weight: 400; color: var(--gray-3); }
-.plan-note { font-size: 12px; color: var(--gray-3); margin-top: 3px; }
-.plan-note-sub { font-size: 11px; color: var(--amber); margin-top: 2px; font-style: italic; }
-.plan-divider { height: 1px; background: var(--gray-2); margin: 16px 0; }
-.plan-cols { display: flex; flex-direction: column; gap: 20px; }
-.plan-col-label { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 8px; }
-.plan-items { list-style: none; }
-.plan-items li { font-size: 13px; color: var(--gray-4); padding: 6px 0; border-bottom: 1px solid var(--gray-2); display: flex; gap: 9px; align-items: flex-start; line-height: 1.5; }
-.plan-items li:last-child { border-bottom: none; }
-.plan-items li svg { width: 14px; height: 14px; stroke: var(--purple); fill: none; stroke-width: 2.5; stroke-linecap: round; flex-shrink: 0; margin-top: 3px; }
-.plan-items.teal li svg { stroke: var(--teal); }
-.plan-promise { font-size: 13px; font-style: italic; color: var(--gray-3); border-left: 3px solid var(--purple); padding-left: 12px; line-height: 1.6; margin-top: 16px; }
-.plan-promise.teal { border-left-color: var(--teal); }
-.plan-cta { display: inline-block; margin-top: 16px; padding: 10px 22px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: all .15s; border: 1px solid var(--navy); background: transparent; color: var(--navy); text-decoration: none; }
-.plan-cta:hover { background: var(--cream); }
-.plan-cta.filled { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 700; }
-.plan-cta.filled:hover { opacity: 0.88; }
 
 /* ADDONS */
-.addon-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
-.addon { border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 16px; }
-.addon-name { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.addon-desc { font-size: 12px; color: var(--gray-3); margin-bottom: 8px; line-height: 1.5; }
-.addon-price { font-size: 13px; font-weight: 600; }
-.c-p { color: var(--purple); } .c-t { color: var(--teal); } .c-a { color: var(--amber); }
 
 /* STEPS */
 .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; }
@@ -284,7 +230,6 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 }
 @media(max-width:480px){
   section { padding: 48px 0; }
-  .plan-right { text-align: left; }
 }
 </style>
 <link rel="stylesheet" href="/mrtom-secciones.css">
@@ -395,114 +340,52 @@ footer { padding: 40px 0; background: var(--navy); text-align: center; font-size
 </section>
 </div>
 
-<!-- PLANES -->
-<section id="planes" class="section-dark">
-  <div class="wrap">
-    <div class="section-header">
-      <div class="section-label">Planes de servicio</div>
-      <div class="section-title">Dos niveles. Uno para ordenar, otro para crecer.</div>
-      <p class="section-sub">Ambos planes incluyen onboarding guiado, dashboard mensual automatizado y acceso directo a tu consejero. Valores sujetos a cotización según movimientos de la empresa.</p>
-    </div>
-    <div class="plan-stack">
-
-      <!-- NIVEL 1 -->
-      <div class="plan-card">
-        <div class="plan-top">
-          <div class="plan-left">
-            <div class="plan-badge badge-p">Nivel 1 · Arranque</div>
-            <div class="plan-name">Base Inteligente</div>
-            <div class="plan-sub">Para agencias o pymes recién formadas que necesitan orden desde el día uno.</div>
-          </div>
-          <div class="plan-right">
-            <div class="plan-price">Desde 2 UF <span>/ mes</span></div>
-            <div class="plan-note">~$81.000 CLP · contrato mínimo 6 meses</div>
-            <div class="plan-note-sub">* Valor sujeto a cotización según movimientos</div>
-          </div>
-        </div>
-        <div class="plan-divider"></div>
-        <ul class="plan-items">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contabilidad mensual completa (Conciliación Bancaria, libro de compras y ventas)</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Preparación Tributaria (F29)</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dashboard financiero mensual automatizado — ingresos, egresos, saldo disponible</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 consulta tributaria mensual por escrito (respuesta en 48 hrs)</li>
-        </ul>
-        <div class="plan-promise">"Tu empresa siempre al día, sin que tengas que pensar en el SII."</div>
-        <a href="#diagnostico" class="plan-cta">Comenzar con Base Inteligente →</a>
-      </div>
-
-      <!-- NIVEL 2 -->
-      <div class="plan-card featured">
-        <div class="plan-top">
-          <div class="plan-left">
-            <div class="plan-badge badge-t">Nivel 2 · Crecimiento · Recomendado</div>
-            <div class="plan-name">Consejero Activo</div>
-            <div class="plan-sub">Para agencias y pymes con 2–5 años operando que quieren crecer con información real.</div>
-          </div>
-          <div class="plan-right">
-            <div class="plan-price">Desde 12 UF <span>/ mes</span></div>
-            <div class="plan-note">~$500.000 CLP · contrato mínimo 12 meses</div>
-            <div class="plan-note-sub">* Valor sujeto a cotización según movimientos</div>
-          </div>
-        </div>
-        <div class="plan-divider"></div>
-        <div class="plan-cols">
-          <div>
-            <div class="plan-col-label">Contabilidad y finanzas</div>
-            <ul class="plan-items teal">
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del Nivel 1</li>
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Estados financieros mensuales: balance, estado de resultados, flujo de caja (activos y pasivos)</li>
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Revisión trimestral de PPM — asesoría sobre monto mensual</li>
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Reunión mensual de 45 min para revisar y decidir</li>
-            </ul>
-          </div>
-          <div>
-            <div class="plan-col-label">Gestión y administración</div>
-            <ul class="plan-items teal">
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gestión de proveedores: pago y coordinación</li>
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gestión de clientes: alarmas de pagos pendientes e información de estado</li>
-              <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Atención personalizada de asesorías e información</li>
-            </ul>
-          </div>
-        </div>
-        <div class="plan-promise teal">"Sabes exactamente cuánto ganaste, cuánto puedes retirar y cuánto pagarás de impuestos — antes de que llegue la fecha."</div>
-        <a href="#diagnostico" class="plan-cta filled">Comenzar con Consejero Activo →</a>
-      </div>
-
-    </div>
+<!-- PLANES + SERVICIOS ADICIONALES -->
+<div class="mt">
+<section class="sec dark" id="planes">
+ <div class="wrap">
+  <div class="head rv"><h2>Dos niveles. Uno para ordenar,<br><em>otro para crecer.</em></h2><p class="lead">Ambos incluyen onboarding guiado, dashboard mensual y acceso directo a tu consejero. El valor final se cotiza en tu diagnóstico gratuito.</p></div>
+  <div class="pAw rv" style="--d:1"><article class="pA pA-base" tabindex="0" data-plan="base" aria-label="Base Inteligente">
+ <div class="pA-cover">
+  <div class="cv-top"><span class="pr-badge">Nivel 1 · Arranque</span></div>
+  <h3 class="cv-name">Base Inteligente</h3>
+  <div class="cv-price"><span class="cv-desde">Desde</span><span class="cv-uf"><span class="cv-n">3</span> UF</span><span class="cv-mes">/ mes</span></div>
+  <div class="pr-clp">Contrato mínimo 6 meses</div>
+  <div class="cv-ideal"><span class="cv-il"><em>Ideal para</em></span><div class="cv-chips"><span class="cv-chip" style="--i:0">Pymes que están partiendo</span><span class="cv-chip" style="--i:1">Estudios de abogados</span><span class="cv-chip" style="--i:2">Consultorios clínicos</span><span class="cv-chip" style="--i:3">Veterinarias</span><span class="cv-chip" style="--i:4">Psicólogos</span><span class="cv-chip" style="--i:5">Kinesiólogos y nutricionistas</span><span class="cv-chip" style="--i:6">Dentistas</span><span class="cv-chip" style="--i:7">Consultores</span><span class="cv-chip" style="--i:8">Arquitectos y diseñadores</span><span class="cv-chip" style="--i:9">Profesionales independientes</span></div></div>
+    <span class="cv-more">Ver todo lo que incluye <i aria-hidden="true">→</i></span>
+ </div>
+ <div class="pA-detail">
+  <div class="dt-head">
+   <div><div class="cv-top"><span class="pr-badge">Nivel 1 · Arranque</span></div><h3 class="dt-name">Base Inteligente</h3></div>
+   <div class="dt-price"><div class="cv-price"><span class="cv-desde">Desde</span><span class="dt-uf">3 UF</span><span class="cv-mes">/ mes</span></div><div class="pr-clp">Contrato mínimo 6 meses</div></div>
   </div>
-</section>
-
-<!-- ADD-ONS -->
-<section>
-  <div class="wrap">
-    <div class="section-header">
-      <div class="section-label">Servicios adicionales</div>
-      <div class="section-title">Complementa tu plan según lo que necesites</div>
-    </div>
-    <div class="addon-grid">
-      <div class="addon">
-        <div class="addon-name">Inicio de actividades + estructura</div>
-        <div class="addon-desc">Elección de régimen tributario, alta en SII y configuración inicial.</div>
-        <div class="addon-price c-p">2 UF · pago único</div>
-      </div>
-      <div class="addon">
-        <div class="addon-name">Remuneraciones</div>
-        <div class="addon-desc">Cálculo sueldo y previred para cada trabajador.</div>
-        <div class="addon-price c-p">0,3 UF / trabajador / mes</div>
-      </div>
-      <div class="addon">
-        <div class="addon-name">Operación Renta intensiva</div>
-        <div class="addon-desc">Para clientes sin contabilidad al día. Preparación completa del F22 y DJs.</div>
-        <div class="addon-price c-t">3 – 20 UF · según complejidad</div>
-      </div>
-      <div class="addon">
-        <div class="addon-name">Presupuesto</div>
-        <div class="addon-desc">Creación y/o control de presupuesto mensual para tu empresa.</div>
-        <div class="addon-price c-t">8 UF · pago mensual</div>
-      </div>
-    </div>
+  <svg class="dt-firma" viewBox="0 0 600 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 7 Q300 15 597 3"/></svg>
+  <div class="dt-feats"><div class="dt-g"><ul><li style="--i:0"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Contabilidad mensual completa: conciliación bancaria, libro de compras y ventas</span></li><li style="--i:1"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Preparación tributaria (F29)</span></li><li style="--i:2"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Dashboard financiero mensual automatizado: ingresos, egresos, saldo disponible</span></li><li style="--i:3"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>1 consulta tributaria mensual por escrito (respuesta en 48 h)</span></li><li style="--i:4"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Onboarding guiado y acceso directo a tu consejero</span></li></ul></div></div>
+  <div class="dt-foot"><blockquote class="pr-quote">"Tu empresa siempre al día, sin que tengas que pensar en el SII."</blockquote><a class="btn ghost-btn" href="#diagnostico">Comenzar con Base Inteligente →</a></div>
+ </div>
+</article><article class="pA open pA-cons" tabindex="0" data-plan="cons" aria-label="Consejero Activo">
+ <div class="pA-cover">
+  <div class="cv-top"><span class="pr-badge">Nivel 2 · Crecimiento</span><span class="pr-rec">Recomendado</span></div>
+  <h3 class="cv-name">Consejero Activo</h3>
+  <div class="cv-price"><span class="cv-desde">Desde</span><span class="cv-uf"><span class="cv-n">12</span> UF</span><span class="cv-mes">/ mes</span></div>
+  <div class="pr-clp">Contrato mínimo 12 meses</div>
+  <div class="cv-ideal"><span class="cv-il"><em>Ideal para</em></span><div class="cv-chips"><span class="cv-chip" style="--i:0">Pymes con 2 a 5 años operando</span><span class="cv-chip" style="--i:1">Agencias</span><span class="cv-chip" style="--i:2">Centros médicos y clínicas</span><span class="cv-chip" style="--i:3">Comercio y ecommerce</span><span class="cv-chip" style="--i:4">Constructoras e inmobiliarias</span><span class="cv-chip" style="--i:5">Restaurantes y cafeterías</span><span class="cv-chip" style="--i:6">Distribuidoras</span><span class="cv-chip" style="--i:7">Empresas que quieren crecer</span></div></div>
+    <span class="cv-more">Ver todo lo que incluye <i aria-hidden="true">→</i></span>
+ </div>
+ <div class="pA-detail">
+  <div class="dt-head">
+   <div><div class="cv-top"><span class="pr-badge">Nivel 2 · Crecimiento</span><span class="pr-rec">Recomendado</span></div><h3 class="dt-name">Consejero Activo</h3></div>
+   <div class="dt-price"><div class="cv-price"><span class="cv-desde">Desde</span><span class="dt-uf">12 UF</span><span class="cv-mes">/ mes</span></div><div class="pr-clp">Contrato mínimo 12 meses</div></div>
   </div>
+  <svg class="dt-firma" viewBox="0 0 600 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 7 Q300 15 597 3"/></svg>
+  <div class="dt-feats"><div class="dt-g"><div class="pr-gh">Contabilidad y finanzas</div><ul><li style="--i:0"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Todo lo de Base Inteligente</span></li><li style="--i:1"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Estados financieros mensuales: balance, estado de resultados y flujo de caja</span></li><li style="--i:2"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Revisión trimestral de PPM y asesoría sobre el monto mensual</span></li><li style="--i:3"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Reunión mensual de 45 min para revisar y decidir</span></li></ul></div><div class="dt-g"><div class="pr-gh">Gestión y administración</div><ul><li style="--i:0"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Gestión de proveedores: pago y coordinación</span></li><li style="--i:1"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Gestión de clientes: alarmas de pagos pendientes y estado</span></li><li style="--i:2"><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M4 10 Q20 18 36 6"/></svg><span>Atención personalizada de asesorías e información</span></li></ul></div></div>
+  <div class="dt-foot"><blockquote class="pr-quote">"Sabes cuánto ganaste y cuánto dispones para retirar o invertir."</blockquote><a class="btn gold-btn" href="#diagnostico">Comenzar con Consejero Activo →</a></div>
+ </div>
+</article></div>
+  <div class="prA-xs rv" style="--d:2"><div class="prA-xl"><b>Agrega a cualquier plan</b><span>Precios a la vista, sin letra chica.</span></div><div class="prA-x" tabindex="0"><span class="prA-xn">Inicio de actividades + estructura</span><span class="prA-xp">2 UF <small>pago único</small></span><span class="prA-xd">Elección de régimen tributario, alta en SII y configuración inicial.</span></div><div class="prA-x" tabindex="0"><span class="prA-xn">Remuneraciones</span><span class="prA-xp">0,3 UF <small>por trabajador / mes</small></span><span class="prA-xd">Cálculo de sueldos y Previred para cada trabajador.</span></div><div class="prA-x" tabindex="0"><span class="prA-xn">Operación Renta intensiva</span><span class="prA-xp">3–20 UF <small>según complejidad</small></span><span class="prA-xd">Para empresas sin contabilidad al día: F22 y declaraciones juradas completas.</span></div><div class="prA-x" tabindex="0"><span class="prA-xn">Presupuesto</span><span class="prA-xp">8 UF <small>mensual</small></span><span class="prA-xd">Creación y control del presupuesto mensual de tu empresa.</span></div></div>
+ </div>
 </section>
+</div>
 
 <!-- CÓMO FUNCIONA -->
 <section class="section-dark">

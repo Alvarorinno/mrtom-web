@@ -24,3 +24,14 @@
     tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k);list.classList.add('paused');clearInterval(timer)})});
     show(0);timer=setInterval(function(){show((i+1)%tabs.length)},6000);});
 })();
+
+/* Planes: el plan bajo el mouse (o tocado / con foco) se abre y el otro se achica */
+(function(){
+  document.querySelectorAll('.mt .pAw').forEach(function(w){var ps=[].slice.call(w.querySelectorAll('.pA'));
+    var open=function(p){ps.forEach(function(x){x.classList.toggle('open',x===p)})};
+    ps.forEach(function(p){
+      p.addEventListener('mouseenter',function(){if(matchMedia('(hover:hover)').matches)open(p)});
+      p.addEventListener('click',function(){open(p)});
+      p.addEventListener('focus',function(){open(p)});
+    });});
+})();
